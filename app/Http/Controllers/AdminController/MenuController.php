@@ -74,14 +74,11 @@ class MenuController extends Controller
             $image = $request->file('image');
             $imageName = time() . '_' . Str::slug($request->slug) . '.' . $image->getClientOriginalExtension();
 
-            // Use Storage facade for more reliable file handling
-            $stored = Storage::disk('public')->putFileAs('menus', $image, $imageName);
+            // Store in Laravel's proper storage location
+            Storage::disk('public')->putFileAs('menus', $image, $imageName);
 
-            // Verify file actually exists
-            $fullPath = storage_path('app/public/menus/' . $imageName);
-            if (file_exists($fullPath)) {
-                $menu->update(['image' => $imageName]);
-            }
+            // Update menu with image name
+            $menu->update(['image' => $imageName]);
         }
 
         return redirect()->route('admin.foods.index')->with('success', 'Food item created successfully!');
@@ -136,14 +133,10 @@ class MenuController extends Controller
             $image = $request->file('image');
             $imageName = time() . '_' . Str::slug($request->slug) . '.' . $image->getClientOriginalExtension();
 
-            // Use Storage facade for more reliable file handling
-            $stored = Storage::disk('public')->putFileAs('menus', $image, $imageName);
+            // Store in Laravel's proper storage location
+            Storage::disk('public')->putFileAs('menus', $image, $imageName);
 
-            // Verify file actually exists
-            $fullPath = storage_path('app/public/menus/' . $imageName);
-            if (file_exists($fullPath)) {
-                $data['image'] = $imageName;
-            }
+            $data['image'] = $imageName;
         }
 
         // Use provided slug
