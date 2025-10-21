@@ -135,7 +135,7 @@
                                         <i class="fas fa-star"></i>
                                         <span>(5k)</span>
                                     </div>
-                                    <a href="{{ route('shop') }}" class="theme-btn style-two">Order now <i class="far fa-arrow-alt-right"></i></a>
+                                    <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn style-two">Order now <i class="far fa-arrow-alt-right"></i></a>
                                 </div>
                             </div>
                         </div>

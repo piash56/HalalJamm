@@ -43,8 +43,8 @@
                 
                 <!-- Menu Button -->
                 <div class="menu-btns">
-                    <button><i class="far fa-shopping-cart"></i> <span>2</span></button>
-                    <a href="{{ route('contact') }}" class="theme-btn">Order now <i class="far fa-arrow-alt-right"></i></a>
+                    <button onclick="window.location.href='{{ route('cart') }}'"><i class="far fa-shopping-cart"></i> <span id="cart-count">{{ count(session()->get('cart', [])) }}</span></button>
+                    <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">Order now <i class="far fa-arrow-alt-right"></i></a>
                 </div>
             </div>
         </div>

@@ -28,3 +28,25 @@
     <script src="{{ asset('/assets/js/aos.js') }}"></script>
     <!-- Custom script -->
     <script src="{{ asset('/assets/js/script.js') }}"></script>
+    
+    <!-- Global Cart Functions -->
+    <script>
+        // Global function to update cart count
+        window.updateCartCount = async function() {
+            try {
+                const response = await fetch('{{ route("cart.count") }}');
+                const data = await response.json();
+                const cartCountElement = document.getElementById('cart-count');
+                if (cartCountElement) {
+                    cartCountElement.textContent = data.count;
+                }
+            } catch (error) {
+                console.error('Error updating cart count:', error);
+            }
+        };
+        
+        // Update cart count on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            window.updateCartCount();
+        });
+    </script>

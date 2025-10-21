@@ -18,7 +18,7 @@
                             <span class="sub-title mb-35"><i class="far fa-hamburger"></i>Halal Jamm: </span>
                             <h1>Bold Flavors of New York</h1>
                             <p>Fresh halal street food crafted with passion. Every bite tells a story of authentic New York cuisine.</p>
-                            <a href="{{ route('menuChicken') }}" class="theme-btn">View All Menu <i class="far fa-arrow-alt-right"></i></a>
+                            <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">View All Menu <i class="far fa-arrow-alt-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
@@ -123,8 +123,8 @@
                             </div>
                             <p>Fresh, flavorful, and always halal. Halal Jamm serves authentic halal dishes made with care and bold NYC flavor. Great taste, fast service, and real quality in every bite</p>
                             <div class="about-btn-author pt-5 mb-45">
-                                <a href="{{ route('about') }}" class="theme-btn style-two">Our Menu <i class="far fa-arrow-alt-right"></i></a>
-                                <a href="{{ route('about') }}" class="read-more">Explore popular menu <i class="far fa-arrow-alt-right"></i></a>
+                                <a href="{{ route('allMenus') }}" class="theme-btn style-two">Our Menu <i class="far fa-arrow-alt-right"></i></a>
+                                <a href="#" class="read-more">Explore popular menu <i class="far fa-arrow-alt-right"></i></a>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
@@ -233,7 +233,7 @@
                             <h2>Special deal offer for this week</h2>
                             <h3>grilled beef meat only <span>$59</span></h3>
                             <p>Restaurant, where culinary excellence meets warm hospitality in every dish we serve nestled in the heart of city</p>
-                            <a href="" class="theme-btn">order now <i class="far fa-arrow-alt-right"></i></a>
+                            <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">order now <i class="far fa-arrow-alt-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -312,224 +312,59 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-xl-4 col-lg-6 z-3" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Chicken Gyro</h5>
-                                    <p>Served with lettuce, tomato, onion and your choice of sauce</p>
+                @if($popularMenus->count() > 0)
+                    <div class="row justify-content-center">
+                        @php
+                            $totalItems = $popularMenus->count();
+                            $itemsPerColumn = ceil($totalItems / 3);
+                            
+                            // Create columns with proper distribution
+                            $column1 = $popularMenus->take($itemsPerColumn);
+                            $column2 = $popularMenus->skip($itemsPerColumn)->take($itemsPerColumn);
+                            $column3 = $popularMenus->skip($itemsPerColumn * 2);
+                            
+                            $columns = [$column1, $column2, $column3];
+                            
+                            // Debug: Log the distribution (remove this in production)
+                            // \Log::info("Total items: $totalItems, Items per column: $itemsPerColumn");
+                            // \Log::info("Column 1: " . $column1->count() . " items");
+                            // \Log::info("Column 2: " . $column2->count() . " items");
+                            // \Log::info("Column 3: " . $column3->count() . " items");
+                        @endphp
+                        
+                        @foreach($columns as $columnIndex => $columnItems)
+                            @if($columnItems->count() > 0)
+                                <div class="col-xl-4 col-lg-6 z-{{ 3 - $columnIndex }}" data-aos="fade-up" data-aos-delay="{{ $columnIndex * 50 }}" data-aos-duration="1500" data-aos-offset="50">
+                                    @foreach($columnItems as $index => $menu)
+                                        <div class="food-item {{ $index == $columnItems->count() - 1 ? 'mb-30' : '' }}">
+                                            <div class="content">
+                                                <div class="name-desc">
+                                                    <h5>{{ $menu->name }}</h5>
+                                                    <p>{{ $menu->description ?: 'Delicious halal food item' }}</p>
+                                                </div>
+                                                <div class="price">
+                                                    <span>${{ number_format($menu->price, 2) }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <img src="{{ $menu->image_url }}" alt="{{ $menu->name }}">
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <div class="price">
-                                    <span>$7.99</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Chicken Kofta Gyro</h5>
-                                    <p>Served with lettuce, tomato, onion and your choice of sauce</p>
-                                </div>
-                                <div class="price">
-                                    <span>$7.99</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Chicken/Beef Burrito</h5>
-                                    <p>Served with lettuce, tomato, onion and your choice of sauce</p>
-                                </div>
-                                <div class="price">
-                                    <span>$8.50</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Falafel Gyro</h5>
-                                    <p>Served with lettuce, tomato, onion and your choice of sauce</p>
-                                </div>
-                                <div class="price">
-                                    <span>$7.99</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item mb-30">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Fish Gyro</h5>
-                                    <p>Served with lettuce, tomato, onion and your choice of sauce</p>
-                                </div>
-                                <div class="price">
-                                    <span>$7.99</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
+                            @endif
+                        @endforeach
+                    </div>
+                @else
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="alert alert-info">
+                                <h4>No Popular Items Available</h4>
+                                <p>Please mark some foods as popular in the admin dashboard to display them here.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 z-2" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Beef Kofta Platter</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$13.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Chapli Kebab Platter</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$13.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Chicken & Beef Kofta Platter</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$13.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Mixed Tikka Platter</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$13.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item mb-30">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Shish Kebab Platter</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$13.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 z-1" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Chicken Burger</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$8.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Falafel Burger</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$8.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Halal Bacon Burger</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$8.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Jammin Burger</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$8.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                        <div class="food-item mb-30">
-                            <div class="content">
-                                <div class="name-desc">
-                                    <h5>Spicy Halal House Burger</h5>
-                                    <p>Native to the icy waters of the Pacific</p>
-                                </div>
-                                <div class="price">
-                                    <span>$8.25</span>
-                                </div>
-                            </div>
-                            <div class="image">
-                                <img src="{{ asset('/assets/images/food/food1.png') }}" alt="Food Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endif
             </div>
         </section>
         <!-- Popular Menu Area end -->
