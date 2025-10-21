@@ -370,49 +370,6 @@
         <!-- Popular Menu Area end -->
         
         
-        <!-- Gallery Area Start -->
-        <div class="gallery-area rel z-1">
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="gallery-item" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="gallery-image">
-                                <img src="{{ asset('/assets/images/gallery/gallery1.jpg') }}" alt="Gallery">
-                            </div>
-                            <div class="gallery-content">
-                                <h5>Spicy awesome burger</h5>
-                                <span class="category">Burger, Hamburger</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="gallery-item" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="gallery-image">
-                                <img src="{{ asset('/assets/images/gallery/gallery2.jpg') }}" alt="Gallery">
-                            </div>
-                            <div class="gallery-content">
-                                <h5>Spicy awesome fries</h5>
-                                <span class="category">fries, potato</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="gallery-image">
-                                <img src="{{ asset('/assets/images/gallery/gallery3.jpg') }}" alt="Gallery">
-                            </div>
-                            <div class="gallery-content">
-                                <h5>Spicy awesome pizza</h5>
-                                <span class="category">pizza, halal</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Gallery Area End -->
-        
-        
         <!-- Why choose Us Area start -->
         <section class="why-choose-area bgc-lighter pt-240 rpt-150 pb-100 rpb-70 rel z-1">
             <span class="marquee-wrap style-two">

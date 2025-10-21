@@ -10,6 +10,10 @@
 -   ✅ Order Now buttons linked to external menu
 -   ✅ 404 page configured
 -   ✅ All logos updated to use correct paths
+-   ✅ **NEW: Production-ready image handling**
+-   ✅ **NEW: Optimized .htaccess configuration**
+-   ✅ **NEW: Automated deployment scripts**
+-   ✅ **NEW: Security and performance optimizations**
 
 ## 🔧 **1. cPanel Deployment Steps**
 
@@ -83,6 +87,21 @@ MAIL_FROM_NAME="Halal Jamm"
 
 ### **Step 4: Run Production Commands**
 
+#### **Option A: Automated Deployment (Recommended)**
+
+```bash
+# Run the automated deployment script
+./deploy-production.sh
+
+# Set proper permissions
+./set-permissions.sh
+
+# Test the production setup
+./test-production.sh
+```
+
+#### **Option B: Manual Commands**
+
 ```bash
 # Install dependencies
 composer install --optimize-autoloader --no-dev
@@ -95,6 +114,9 @@ php artisan migrate --force
 
 # Seed database (if needed)
 php artisan db:seed --force
+
+# Create storage symlink
+php artisan storage:link
 
 # Clear and cache config
 php artisan config:cache
@@ -219,7 +241,49 @@ ALTER TABLE menus ADD INDEX idx_popular (is_popular);
 ALTER TABLE orders ADD INDEX idx_created_at (created_at);
 ```
 
-## 🚨 **4. Common Issues & Solutions**
+## 🖼️ **4. Image Handling & Optimization**
+
+### **Production-Ready Image System**
+
+Your application now includes advanced image handling features:
+
+#### **ImageHelper Class**
+
+-   **Automatic image optimization** (resize, compress)
+-   **Responsive image URLs** for different screen sizes
+-   **Fallback placeholder images** for missing images
+-   **Secure file validation** and upload handling
+-   **Automatic cleanup** of old images
+
+#### **Image Storage Structure**
+
+```
+storage/app/public/
+├── categories/     # Category images
+├── menus/         # Menu item images
+└── addons/        # Addon images
+```
+
+#### **Image Optimization Features**
+
+-   **Automatic resizing** (max 1920px width)
+-   **Quality compression** (85% quality)
+-   **Multiple format support** (JPEG, PNG, GIF, WebP)
+-   **Browser caching** (1 year cache headers)
+-   **CDN-ready URLs**
+
+#### **Usage Examples**
+
+```php
+// In your controllers
+$filename = ImageHelper::uploadImage($request->file('image'), 'categories', 'cat_');
+
+// In your models (already implemented)
+$category->image_url; // Returns optimized image URL
+$category->responsive_image_urls; // Returns responsive URLs
+```
+
+## 🚨 **5. Common Issues & Solutions**
 
 ### **Issue 1: 500 Internal Server Error**
 
@@ -243,8 +307,47 @@ php artisan view:clear
 ### **Issue 3: File Permission Issues**
 
 ```bash
+# Use the automated script
+./set-permissions.sh
+
+# Or manually:
 chmod -R 755 storage bootstrap/cache
 chown -R www-data:www-data storage bootstrap/cache
+```
+
+### **Issue 4: Image Loading Issues**
+
+```bash
+# Check if storage symlink exists
+ls -la public/storage
+
+# If missing, create it:
+php artisan storage:link
+
+# Check storage permissions
+ls -la storage/app/public/
+
+# Ensure directories exist
+mkdir -p storage/app/public/{categories,menus,addons}
+chmod -R 775 storage/app/public
+```
+
+### **Issue 5: Performance Issues**
+
+```bash
+# Clear all caches
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+# Re-cache for production
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+# Optimize autoloader
+composer install --optimize-autoloader --no-dev
 ```
 
 ## 📧 **5. Email Configuration**

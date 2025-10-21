@@ -53,9 +53,20 @@ class Category extends Model
     // Get image URL
     public function getImageUrlAttribute()
     {
-        if ($this->image && file_exists(storage_path('app/public/categories/' . $this->image))) {
-            return asset('storage/categories/' . $this->image);
-        }
-        return asset('images/placeholder-category.png');
+        return \App\Helpers\ImageHelper::getImageUrl(
+            $this->image,
+            'categories',
+            'images/placeholder-category.png'
+        );
+    }
+
+    // Get responsive image URLs
+    public function getResponsiveImageUrlsAttribute()
+    {
+        return \App\Helpers\ImageHelper::getResponsiveImageUrls(
+            $this->image,
+            'categories',
+            'images/placeholder-category.png'
+        );
     }
 }

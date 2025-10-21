@@ -67,9 +67,20 @@ class Menu extends Model
 
     public function getImageUrlAttribute()
     {
-        if ($this->image && file_exists(storage_path('app/public/menus/' . $this->image))) {
-            return asset('storage/menus/' . $this->image);
-        }
-        return asset('images/placeholder-menu.png');
+        return \App\Helpers\ImageHelper::getImageUrl(
+            $this->image,
+            'menus',
+            'images/placeholder-menu.png'
+        );
+    }
+
+    // Get responsive image URLs
+    public function getResponsiveImageUrlsAttribute()
+    {
+        return \App\Helpers\ImageHelper::getResponsiveImageUrls(
+            $this->image,
+            'menus',
+            'images/placeholder-menu.png'
+        );
     }
 }
