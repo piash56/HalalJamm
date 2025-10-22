@@ -68,9 +68,14 @@ class Menu extends Model
     public function getImageUrlAttribute()
     {
         if ($this->image) {
-            // Use Laravel's proper storage path
+            // First try storage path (for development)
             if (file_exists(storage_path('app/public/menus/' . $this->image))) {
                 return asset('storage/menus/' . $this->image);
+            }
+
+            // Then try public path (for production)
+            if (file_exists(public_path('images/menus/' . $this->image))) {
+                return asset('images/menus/' . $this->image);
             }
         }
         return asset('images/placeholder-menu.png');

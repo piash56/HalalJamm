@@ -60,10 +60,17 @@ class ImageHelper
         }
 
         $path = $directory . '/' . $filename;
-        $fullPath = storage_path('app/public/' . $path);
 
-        if (file_exists($fullPath)) {
+        // First try storage path (for development)
+        $storagePath = storage_path('app/public/' . $path);
+        if (file_exists($storagePath)) {
             return asset('storage/' . $path);
+        }
+
+        // Then try public path (for production)
+        $publicPath = public_path('images/' . $path);
+        if (file_exists($publicPath)) {
+            return asset('images/' . $path);
         }
 
         return $fallback ? asset($fallback) : asset('images/placeholder.png');
@@ -106,24 +113,36 @@ class ImageHelper
         }
 
         $path = $directory . '/' . $filename;
-        $fullPath = storage_path('app/public/' . $path);
 
-        if (!file_exists($fullPath)) {
+        // First try storage path (for development)
+        $storagePath = storage_path('app/public/' . $path);
+        if (file_exists($storagePath)) {
+            $baseUrl = asset('storage/' . $path);
             return [
-                'original' => $fallback ? asset($fallback) : asset('images/placeholder.png'),
-                'large' => $fallback ? asset($fallback) : asset('images/placeholder.png'),
-                'medium' => $fallback ? asset($fallback) : asset('images/placeholder.png'),
-                'small' => $fallback ? asset($fallback) : asset('images/placeholder.png')
+                'original' => $baseUrl,
+                'large' => $baseUrl,
+                'medium' => $baseUrl,
+                'small' => $baseUrl
             ];
         }
 
-        $baseUrl = asset('storage/' . $path);
+        // Then try public path (for production)
+        $publicPath = public_path('images/' . $path);
+        if (file_exists($publicPath)) {
+            $baseUrl = asset('images/' . $path);
+            return [
+                'original' => $baseUrl,
+                'large' => $baseUrl,
+                'medium' => $baseUrl,
+                'small' => $baseUrl
+            ];
+        }
 
         return [
-            'original' => $baseUrl,
-            'large' => $baseUrl, // You can implement different sizes here
-            'medium' => $baseUrl,
-            'small' => $baseUrl
+            'original' => $fallback ? asset($fallback) : asset('images/placeholder.png'),
+            'large' => $fallback ? asset($fallback) : asset('images/placeholder.png'),
+            'medium' => $fallback ? asset($fallback) : asset('images/placeholder.png'),
+            'small' => $fallback ? asset($fallback) : asset('images/placeholder.png')
         ];
     }
 
