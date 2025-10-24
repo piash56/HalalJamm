@@ -5503,8 +5503,12 @@ h6, .h6, .offer-card-item .available-item, .about-image-part .food-review .text,
     transition: .3s;
     z-index: 2; }
     .food-item .image img {
-      max-width: 120px;
-      border-radius: 50%; }
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
   .food-item:hover {
     color: white;
     background-color: var(--primary-color);
