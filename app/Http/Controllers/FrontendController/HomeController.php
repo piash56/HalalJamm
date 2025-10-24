@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontendController;
 
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,7 +19,17 @@ class HomeController extends Controller
     {
         $bodyClass = 'page-wrapper';
         $popularMenus = Menu::active()->popular()->orderBy('sort_order', 'asc')->orderBy('created_at', 'desc')->get();
-        return view('frontend.homes.indexOne', compact('bodyClass', 'popularMenus'));
+
+        // Get active offers with their categories and menu counts
+        $offers = Offer::active()
+            ->with(['category' => function ($query) {
+                $query->withCount('menus');
+            }])
+            ->ordered()
+            ->take(5)
+            ->get();
+
+        return view('frontend.homes.indexOne', compact('bodyClass', 'popularMenus', 'offers'));
     }
     // Home Two 
     public function indexTwo()

@@ -73,7 +73,7 @@
                </li>
 
                <li class="menu-item">
-                    <a class="menu-link" href="{{ route('admin.second', ['apps', 'offers']) }}">
+                    <a class="menu-link" href="{{ route('admin.offers.index') }}">
                          <span class="nav-icon">
                               <i class="ri-discount-percent-line"></i>
                          </span>

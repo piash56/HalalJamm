@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminController\AddonController;
 use App\Http\Controllers\AdminController\SettingsController;
 use App\Http\Controllers\AdminController\OrderController;
 use App\Http\Controllers\AdminController\ProfileController;
+use App\Http\Controllers\AdminController\OfferController;
 
 /**
  *    Frontend
@@ -127,6 +128,15 @@ Route::prefix('admin')->middleware(['admin.auth'])->group(function () {
     Route::put('profile', [ProfileController::class, 'updateProfile'])->name('admin.profile.update');
     Route::put('profile/password', [ProfileController::class, 'updatePassword'])->name('admin.profile.password');
 
+    // Offer routes with professional URLs (must be before catch-all routes)
+    Route::get('offers', [OfferController::class, 'index'])->name('admin.offers.index');
+    Route::get('offers/add', [OfferController::class, 'create'])->name('admin.offers.add');
+    Route::post('offers', [OfferController::class, 'store'])->name('admin.offers.store');
+    Route::get('offer/{offer}/edit', [OfferController::class, 'edit'])->name('admin.offer.edit');
+    Route::put('offer/{offer}', [OfferController::class, 'update'])->name('admin.offer.update');
+    Route::delete('offer/{offer}', [OfferController::class, 'destroy'])->name('admin.offer.destroy');
+
+    // Catch-all routes (must be last)
     Route::get('{first}/{second}/{third}', [RoutingController::class, 'thirdLevel'])->name('admin.third');
     Route::get('{first}/{second}', [RoutingController::class, 'secondLevel'])->name('admin.second');
     Route::get('{any}', [RoutingController::class, 'root'])->name('admin.any');

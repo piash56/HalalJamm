@@ -152,7 +152,7 @@
             </div>
             <div class="about-shapes">
                 <div class="shape one">
-                    <img src="{{ asset('/assets/images/shapes/pizza-three.png') }}" alt="Shape">
+                    <img src="{{ asset('/assets/images/shapes/chicken-menu1.png') }}" alt="Shape">
                 </div>
             </div>
         </section>
@@ -163,6 +163,25 @@
         <!-- Offer Card Area start -->
         <div class="offer-card-area">
            <div class="row no-gap row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 justify-content-center">
+                @forelse($offers as $index => $offer)
+                <div class="col" data-aos="fade-up" data-aos-delay="{{ $index * 50 }}" data-aos-duration="1500" data-aos-offset="50">
+                    <div class="offer-card-item {{ $index % 2 == 1 ? 'style-two' : '' }}">
+                        <img src="{{ asset('/assets/images/offer/good-food.png') }}" alt="Good Food">
+                        <div class="badge">{{ $offer->offer_type === 'hot' ? 'Hot' : '-' . number_format($offer->discount_amount, 0) . '%' }}</div>
+                        <div class="image">
+                            <img src="{{ $offer->image_url }}" alt="{{ $offer->food_name }}" onerror="this.src='{{ asset('images/placeholder-menu.png') }}'">
+                        </div>
+                        <span class="title">{{ $offer->food_name }}</span>
+                        <span class="available-item">{{ $offer->category->menus_count }}+ {{ $offer->category->name }} menu items</span>
+                        <div class="bg-text">
+                            @if($offer->tag_1)<span>{{ $offer->tag_1 }}</span>@endif
+                            @if($offer->tag_2)<span>{{ $offer->tag_2 }}</span>@endif
+                            @if($offer->tag_3)<span>{{ $offer->tag_3 }}</span>@endif
+                        </div>
+                    </div>
+                </div>
+                @empty
+                <!-- Fallback static offers if no dynamic offers are available -->
                 <div class="col" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                     <div class="offer-card-item">
                         <img src="{{ asset('/assets/images/offer/good-food.png') }}" alt="Good Food">
@@ -213,6 +232,7 @@
                         <div class="bg-text"><span>seafood</span> <span>seafood</span> <span>seafood</span></div>
                     </div>
                 </div>
+                @endforelse
            </div>
         </div>
         <!-- Offer Card Area end -->
@@ -230,17 +250,17 @@
                     <div class="col-lg-6">
                         <div class="offer-content text-white rmb-55" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
                             <img src="{{ asset('/assets/images/offer/delicious.png') }}" alt="Image">
-                            <h2>Special deal offer for this week</h2>
-                            <h3>grilled beef meat only <span>$59</span></h3>
+                            <h2>Special deal offer every weekend</h2>
+                            <h3>grilled chicken shawarma <span>$8.25</span></h3>
                             <p>Restaurant, where culinary excellence meets warm hospitality in every dish we serve nestled in the heart of city</p>
                             <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">order now <i class="far fa-arrow-alt-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="offer-image" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/offer/offer-img.png') }}" alt="Offer Image">
+                            <img src="{{ asset('/assets/images/offer/shawarma-sale.jpeg') }}" alt="Offer Image">
                             <div class="offer-badge" style="background-image: url(assets/images/shapes/offer-circle-shape.png)">
-                                <span>only <br><span class="price">$59</span></span>
+                                <span>only <br><span class="price">$8.25</span></span>
                             </div>
                         </div>
                     </div>
@@ -248,7 +268,7 @@
             </div>
             <div class="offer-shapes">
                 <div class="shape one">
-                    <img src="{{ asset('/assets/images/shapes/offer-shape1.png') }}" alt="Shape">
+                    <img src="{{ asset('/assets/images/shapes/offer-shape2.png') }}" alt="Shape">
                 </div>
                 <div class="shape two">
                     <img src="{{ asset('/assets/images/shapes/offer-shape2.png') }}" alt="Shape">
@@ -461,7 +481,7 @@
                     <img src="{{ asset('/assets/images/shapes/tomato.png') }}" alt="Shape">
                 </div>
                 <div class="shape three">
-                    <img src="{{ asset('/assets/images/shapes/pizza.png') }}" alt="Shape">
+                    <img src="{{ asset('/assets/images/shapes/offer-shape2.png') }}" alt="Shape">
                 </div>
             </div>
         </section>
@@ -619,7 +639,7 @@
                     </div>
                 </div>
             </div>
-            <div class="cta-bg" style="background-image: url(assets/images/background/cta.jpg)"></div>
+            <div class="cta-bg" style="background-image: url(assets/images/background/fresh-fish.png)"></div>
         </section>
         <!-- Call To Action Area end -->
         
