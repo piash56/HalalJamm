@@ -9049,6 +9049,18 @@ blockquote {
   margin-right: -8px;
 }
 
+/* Mobile: ensure vertical scrolling in reviews/testimonials area */
+@media (max-width: 991px) {
+  .testimonials-area,
+  .testimonials-slider,
+  .reviews-slider,
+  .reviews-slider .slider-track,
+  .reviews-slider .slider-container {
+    touch-action: pan-y !important;
+    overscroll-behavior-y: contain;
+  }
+}
+
 /* Mobile gallery pagination or infinite scroll styling */
 .gallery-mobile-grid {
   position: relative;

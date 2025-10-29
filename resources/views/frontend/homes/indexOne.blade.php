@@ -28,10 +28,10 @@
                                 @endif
                             @else
                                 <!-- Fallback content if no hero section is configured -->
-                                <span class="sub-title mb-35"><i class="far fa-hamburger"></i>Halal Jamm: </span>
-                                <h1>Bold Flavors of New York</h1>
-                                <p>Fresh halal street food crafted with passion. Every bite tells a story of authentic New York cuisine.</p>
-                                <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">View All Menu <i class="far fa-arrow-alt-right"></i></a>
+                            <span class="sub-title mb-35"><i class="far fa-hamburger"></i>Halal Jamm: </span>
+                            <h1>Bold Flavors of New York</h1>
+                            <p>Fresh halal street food crafted with passion. Every bite tells a story of authentic New York cuisine.</p>
+                            <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">View All Menu <i class="far fa-arrow-alt-right"></i></a>
                             @endif
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                             @if($heroSection && $heroSection->hero_image)
                                 <img src="{{ $heroSection->image_url }}" alt="{{ $heroSection->primary_text }}">
                             @else
-                                <img src="{{ asset('/assets/images/hero/hero-right.png') }}" alt="Hero">
+                            <img src="{{ asset('/assets/images/hero/hero-right.png') }}" alt="Hero">
                             @endif
                             
                             {{-- @if($heroSection && ($heroSection->price_text || $heroSection->price))
@@ -53,9 +53,9 @@
                                     @endif
                                 </div>
                             @else
-                                <div class="price">
-                                    <img src="{{ asset('/assets/images/hero/price.png') }}" alt="Hero">
-                                </div>
+                            <div class="price">
+                                <img src="{{ asset('/assets/images/hero/price.png') }}" alt="Hero">
+                            </div>
                             @endif --}}
                         </div>
                     </div>
@@ -299,11 +299,11 @@
                                 @endif
                             @else
                                 <!-- Fallback content if no offer section is configured -->
-                                <img src="{{ asset('/assets/images/offer/delicious.png') }}" alt="Image">
-                                <h2>Special deal offer every weekend</h2>
-                                <h3>grilled chicken shawarma <span>$8.25</span></h3>
-                                <p>Restaurant, where culinary excellence meets warm hospitality in every dish we serve nestled in the heart of city</p>
-                                <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">order now <i class="far fa-arrow-alt-right"></i></a>
+                            <img src="{{ asset('/assets/images/offer/delicious.png') }}" alt="Image">
+                            <h2>Special deal offer every weekend</h2>
+                            <h3>grilled chicken shawarma <span>$8.25</span></h3>
+                            <p>Restaurant, where culinary excellence meets warm hospitality in every dish we serve nestled in the heart of city</p>
+                            <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">order now <i class="far fa-arrow-alt-right"></i></a>
                             @endif
                         </div>
                     </div>
@@ -312,7 +312,7 @@
                             @if($offerSection && $offerSection->offer_image)
                                 <img src="{{ $offerSection->offer_image_url }}" alt="Offer Image">
                             @else
-                                <img src="{{ asset('/assets/images/offer/shawarma-sale.jpeg') }}" alt="Offer Image">
+                            <img src="{{ asset('/assets/images/offer/shawarma-sale.jpeg') }}" alt="Offer Image">
                             @endif
                             
                             @if($offerSection && ($offerSection->offer_price_text || $offerSection->offer_price))
@@ -327,9 +327,9 @@
                                     </span>
                                 </div>
                             @else
-                                <div class="offer-badge" style="background-image: url(assets/images/shapes/offer-circle-shape.png)">
-                                    <span>only <br><span class="price">$8.25</span></span>
-                                </div>
+                            <div class="offer-badge" style="background-image: url(assets/images/shapes/offer-circle-shape.png)">
+                                <span>only <br><span class="price">$8.25</span></span>
+                            </div>
                             @endif
                         </div>
                     </div>
@@ -384,8 +384,8 @@
                             <div class="gallery-slide">
                                 <div class="gallery-item">
                                     <img src="{{ $image->image_url }}" alt="{{ $image->title ?: 'Gallery Image' }}" class="gallery-image">
-                                </div>
-                            </div>
+                </div>
+                </div>
                             @endforeach
                             
                             <!-- Duplicate slides for infinite loop -->
@@ -393,8 +393,8 @@
                             <div class="gallery-slide">
                                 <div class="gallery-item">
                                     <img src="{{ $image->image_url }}" alt="{{ $image->title ?: 'Gallery Image' }}" class="gallery-image">
-                                </div>
-                            </div>
+            </div>
+        </div>
                             @endforeach
                         </div>
                         
@@ -719,15 +719,15 @@
                                     <i class="far fa-star"></i>
                                 @endif
                             @endfor
-                        </div>
+                </div>
                         <div class="total-reviews">{{ number_format($googleReviews->total_reviews ?? 448) }} reviews</div>
-                    </div>
+                            </div>
                     <a href="https://www.google.com/search?q=halal+jamm#lrd=0x89c26100052a1853:0x5f711507dc9bde0d,3,,,," target="_blank" class="btn btn-primary ms-3">
                         Write a review
                     </a>
                         </div>
                     </div>
-                </div>
+                            </div>
                 
                 <div class="reviews-slider-container">
                     <div class="reviews-slider-wrapper">
@@ -762,19 +762,19 @@
                                                                     <i class="far fa-star"></i>
                                                                 @endif
                                                             @endfor
-                                                        </div>
-                                                    </div>
+                        </div>
+                    </div>
                                                     <div class="review-date">{{ \Carbon\Carbon::parse($review['review_date'])->format('M d, Y') }}</div>
-                                                </div>
+                            </div>
                                                 <div class="review-text">
                                                     <div class="review-text-content">
                                                         {{ Str::limit($review['feedback'], 200) }}
-                                                    </div>
+                        </div>
                                                     @if(strlen($review['feedback']) > 200)
                                                         <span class="more-link" onclick="toggleReviewText(this)">... More</span>
                                                         <div class="review-text-full" style="display: none;">{{ $review['feedback'] }}</div>
                                                     @endif
-                                                </div>
+                    </div>
                                                 <div class="review-author">
                                                     <div class="author-avatar">
                                                         @if($review['image_url'])
@@ -782,20 +782,20 @@
                                                         @else
                                                             <div class="avatar-placeholder">
                                                                 {{ substr($review['name'], 0, 2) }}
-                                                            </div>
+                            </div>
                                                         @endif
-                                                    </div>
+                        </div>
                                                     <div class="author-info">
                                                         <div class="author-name">{{ $review['name'] }}</div>
                                                         <div class="review-source">
                                                             <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="google-logo">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
                                         @endforeach
-                                    </div>
+                        </div>
                                     
                                     <!-- Second Row (4 reviews) -->
                                     @if(count($row2) > 0)
@@ -813,7 +813,7 @@
                                                                     <i class="far fa-star"></i>
                                                                 @endif
                                                             @endfor
-                                                        </div>
+                    </div>
                                                     </div>
                                                     <div class="review-date">{{ \Carbon\Carbon::parse($review['review_date'])->format('M d, Y') }}</div>
                                                 </div>
@@ -1227,20 +1227,29 @@
                 }
             }
             
-            // Touch/swipe support
+            // Touch/swipe support (do not block vertical scroll)
             let startX = 0;
+            let startY = 0;
             let isDragging = false;
             
             slider.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
                 isDragging = true;
                 if (autoSlideInterval) clearInterval(autoSlideInterval);
-            });
+            }, { passive: true });
             
             slider.addEventListener('touchmove', (e) => {
                 if (!isDragging) return;
-                e.preventDefault();
-            });
+                const currentX = e.touches[0].clientX;
+                const currentY = e.touches[0].clientY;
+                const diffX = Math.abs(currentX - startX);
+                const diffY = Math.abs(currentY - startY);
+                // Only prevent default when horizontal gesture dominates
+                if (diffX > diffY && diffX > 10) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
             
             slider.addEventListener('touchend', (e) => {
                 if (!isDragging) return;
