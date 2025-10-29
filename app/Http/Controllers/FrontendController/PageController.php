@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -359,7 +360,8 @@ class PageController extends Controller
     public function gallery()
     {
         $bodyClass = 'page-wrapper';
-        return view('frontend.pages.gallery', compact('bodyClass'));
+        $galleryImages = Gallery::active()->ordered()->get();
+        return view('frontend.pages.gallery', compact('bodyClass', 'galleryImages'));
     }
 
     public function history()

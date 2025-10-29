@@ -1,55 +1,53 @@
 /**
-* Theme: Metor- Responsive Bootstrap 5 Admin Dashboard
-* Author: FoxPixel
-* Module/App: Theme Config Js
-*/
-
+ * Halal Jamm Admin
+ * Module/App: Theme Config JS
+ */
 
 (function () {
+    var savedConfig = sessionStorage.getItem("__METOR_CONFIG__");
 
-     var savedConfig = sessionStorage.getItem("__METOR_CONFIG__");
+    var html = document.getElementsByTagName("html")[0];
 
-     var html = document.getElementsByTagName("html")[0];
+    var defaultConfig = {
+        theme: "light", // ['light', 'dark']
 
-     var defaultConfig = {
-          theme: "light",             // ['light', 'dark']
+        topbar: {
+            color: "dark", // ['light', 'dark']
+        },
 
-          topbar: {
-               color: "dark",       // ['light', 'dark']
-          },
+        menu: {
+            size: "sm-hover", // [ 'default', 'sm-hover-active', 'sm-hover-active', 'condensed', 'full']
+            color: "light", // ['light', 'dark']
+        },
+    };
 
-          menu: {
-               size: "sm-hover",   // [ 'default', 'sm-hover-active', 'sm-hover-active', 'condensed', 'full']
-               color: "light",            // ['light', 'dark']
-          },
-     };
+    var config = Object.assign(JSON.parse(JSON.stringify(defaultConfig)), {});
 
-     
+    config.theme = html.getAttribute("data-bs-theme") || defaultConfig.theme;
+    config.topbar.color =
+        html.getAttribute("data-topbar-color") || defaultConfig.topbar.color;
+    config.menu.color =
+        html.getAttribute("data-menu-color") || defaultConfig.menu.color;
+    config.menu.size =
+        html.getAttribute("data-menu-size") || defaultConfig.menu.size;
 
-    var  config = Object.assign(JSON.parse(JSON.stringify(defaultConfig)), {});
+    window.defaultConfig = JSON.parse(JSON.stringify(config));
 
-     config.theme = html.getAttribute('data-bs-theme') || defaultConfig.theme;
-     config.topbar.color = html.getAttribute('data-topbar-color') || defaultConfig.topbar.color;
-     config.menu.color = html.getAttribute('data-menu-color') || defaultConfig.menu.color;
-     config.menu.size = html.getAttribute('data-menu-size') || defaultConfig.menu.size;
+    if (savedConfig !== null) {
+        config = JSON.parse(savedConfig);
+    }
 
-     window.defaultConfig = JSON.parse(JSON.stringify(config));
+    window.config = config;
 
-     if (savedConfig !== null) {
-          config = JSON.parse(savedConfig);
-     }
+    if (config) {
+        html.setAttribute("data-bs-theme", config.theme);
+        html.setAttribute("data-topbar-color", config.topbar.color);
+        html.setAttribute("data-menu-color", config.menu.color);
 
-     window.config = config;
-
-     if (config) {
-          html.setAttribute("data-bs-theme", config.theme);
-          html.setAttribute("data-topbar-color", config.topbar.color);
-          html.setAttribute("data-menu-color", config.menu.color);
-
-          if (window.innerWidth <= 1140) {
-               html.setAttribute("data-menu-size", "hidden");
-          } else {
-               html.setAttribute("data-menu-size", config.menu.size);
-          }
-     }
+        if (window.innerWidth <= 1140) {
+            html.setAttribute("data-menu-size", "hidden");
+        } else {
+            html.setAttribute("data-menu-size", config.menu.size);
+        }
+    }
 })();

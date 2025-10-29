@@ -1,90 +1,108 @@
 /**
-* Theme: Metor- Responsive Bootstrap 5 Admin Dashboard
-* Author: FoxPixel
-* Module/App: Main Js
-*/
-import $ from 'jquery'
+ * Halal Jamm Admin
+ * Module/App: Main JS
+ */
+import $ from "jquery";
 
-window.jQuery = window.$ = $
+window.jQuery = window.$ = $;
 
-import bootstrap from 'bootstrap/dist/js/bootstrap.bundle'
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle";
 window.bootstrap = bootstrap;
 
-import 'simplebar';
+import "simplebar";
 
-import 'flatpickr'
-import 'iconify-icon'
+import "flatpickr";
+import "iconify-icon";
 
-import ClipboardJS from 'clipboard';
-import Gumshoe from 'gumshoejs';
+import ClipboardJS from "clipboard";
+import Gumshoe from "gumshoejs";
 
+import Prism from "prismjs";
+import NormalizeWhitespace from "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
-import Prism from 'prismjs';
-import NormalizeWhitespace from 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
+import Inputmask from "inputmask";
 
+import Choices from "choices.js";
 
-import Inputmask from 'inputmask';
-
-import Choices from 'choices.js';
-
-import Toastify from 'toastify-js';
+import Toastify from "toastify-js";
 // Components
 class Components {
     initBootstrapComponents() {
-
         // Popovers
-        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        const popoverTriggerList = document.querySelectorAll(
+            '[data-bs-toggle="popover"]'
+        );
+        const popoverList = [...popoverTriggerList].map(
+            (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+        );
 
         // Tooltips
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        const tooltipTriggerList = document.querySelectorAll(
+            '[data-bs-toggle="tooltip"]'
+        );
+        const tooltipList = [...tooltipTriggerList].map(
+            (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+        );
 
         // offcanvas
-        const offcanvasElementList = document.querySelectorAll('.offcanvas')
-        const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl))
+        const offcanvasElementList = document.querySelectorAll(".offcanvas");
+        const offcanvasList = [...offcanvasElementList].map(
+            (offcanvasEl) => new bootstrap.Offcanvas(offcanvasEl)
+        );
 
         //Toasts
         var toastPlacement = document.getElementById("toastPlacement");
         if (toastPlacement) {
-            document.getElementById("selectToastPlacement").addEventListener("change", function () {
-                if (!toastPlacement.dataset.originalClass) {
-                    toastPlacement.dataset.originalClass = toastPlacement.className;
-                }
-                toastPlacement.className = toastPlacement.dataset.originalClass + " " + this.value;
+            document
+                .getElementById("selectToastPlacement")
+                .addEventListener("change", function () {
+                    if (!toastPlacement.dataset.originalClass) {
+                        toastPlacement.dataset.originalClass =
+                            toastPlacement.className;
+                    }
+                    toastPlacement.className =
+                        toastPlacement.dataset.originalClass + " " + this.value;
+                });
+        }
+
+        var toastElList = [].slice.call(document.querySelectorAll(".toast"));
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl);
+        });
+
+        const alertTrigger = document.getElementById("liveAlertBtn");
+        if (alertTrigger) {
+            alertTrigger.addEventListener("click", () => {
+                alert("Nice, you triggered this alert message!", "success");
             });
         }
-
-        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        var toastList = toastElList.map(function (toastEl) {
-            return new bootstrap.Toast(toastEl)
-        })
-
-
-        const alertTrigger = document.getElementById('liveAlertBtn')
-        if (alertTrigger) {
-            alertTrigger.addEventListener('click', () => {
-                alert('Nice, you triggered this alert message!', 'success')
-            })
-        }
-
     }
 
     initfullScreenListener() {
-        var fullScreenBtn = document.querySelector('[data-toggle="fullscreen"]');
+        var fullScreenBtn = document.querySelector(
+            '[data-toggle="fullscreen"]'
+        );
 
         if (fullScreenBtn) {
-            fullScreenBtn.addEventListener('click', function (e) {
+            fullScreenBtn.addEventListener("click", function (e) {
                 e.preventDefault();
-                document.body.classList.toggle('fullscreen-enable')
-                if (!document.fullscreenElement && /* alternative standard method */ !document.mozFullScreenElement && !document.webkitFullscreenElement) {
+                document.body.classList.toggle("fullscreen-enable");
+                if (
+                    !document.fullscreenElement &&
+                    /* alternative standard method */ !document.mozFullScreenElement &&
+                    !document.webkitFullscreenElement
+                ) {
                     // current working methods
                     if (document.documentElement.requestFullscreen) {
                         document.documentElement.requestFullscreen();
                     } else if (document.documentElement.mozRequestFullScreen) {
                         document.documentElement.mozRequestFullScreen();
-                    } else if (document.documentElement.webkitRequestFullscreen) {
-                        document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                    } else if (
+                        document.documentElement.webkitRequestFullscreen
+                    ) {
+                        document.documentElement.webkitRequestFullscreen(
+                            Element.ALLOW_KEYBOARD_INPUT
+                        );
                     }
                 } else {
                     if (document.cancelFullScreen) {
@@ -144,16 +162,20 @@ class FormValidation {
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         // Loop over them and prevent submission
-        document.querySelectorAll('.needs-validation').forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
+        document.querySelectorAll(".needs-validation").forEach((form) => {
+            form.addEventListener(
+                "submit",
+                (event) => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
 
-                form.classList.add('was-validated')
-            }, false)
-        })
+                    form.classList.add("was-validated");
+                },
+                false
+            );
+        });
     }
 
     init() {
@@ -163,10 +185,12 @@ class FormValidation {
 
 //  Form Advanced
 class FormAdvanced {
-
     initMask() {
-        document.querySelectorAll('[data-toggle="input-mask"]').forEach(e => {
-            const maskFormat = e.getAttribute('data-mask-format').toString().replaceAll('0', '9');
+        document.querySelectorAll('[data-toggle="input-mask"]').forEach((e) => {
+            const maskFormat = e
+                .getAttribute("data-mask-format")
+                .toString()
+                .replaceAll("0", "9");
             e.setAttribute("data-mask-format", maskFormat);
             const im = new Inputmask(maskFormat);
             im.mask(e);
@@ -180,7 +204,8 @@ class FormAdvanced {
             var choiceData = {};
             var isChoicesVal = item.attributes;
             if (isChoicesVal["data-choices-groups"]) {
-                choiceData.placeholderValue = "This is a placeholder set in the config";
+                choiceData.placeholderValue =
+                    "This is a placeholder set in the config";
             }
             if (isChoicesVal["data-choices-search-false"]) {
                 choiceData.searchEnabled = false;
@@ -201,10 +226,12 @@ class FormAdvanced {
                 choiceData.removeItemButton = true;
             }
             if (isChoicesVal["data-choices-limit"]) {
-                choiceData.maxItemCount = isChoicesVal["data-choices-limit"].value.toString();
+                choiceData.maxItemCount =
+                    isChoicesVal["data-choices-limit"].value.toString();
             }
             if (isChoicesVal["data-choices-limit"]) {
-                choiceData.maxItemCount = isChoicesVal["data-choices-limit"].value.toString();
+                choiceData.maxItemCount =
+                    isChoicesVal["data-choices-limit"].value.toString();
             }
             if (isChoicesVal["data-choices-editItem-true"]) {
                 choiceData.maxItemCount = true;
@@ -219,7 +246,9 @@ class FormAdvanced {
             if (isChoicesVal["data-choices-text-disabled-true"]) {
                 choiceData.addItems = false;
             }
-            isChoicesVal["data-choices-text-disabled-true"] ? new Choices(item, choiceData).disable() : new Choices(item, choiceData);
+            isChoicesVal["data-choices-text-disabled-true"]
+                ? new Choices(item, choiceData).disable()
+                : new Choices(item, choiceData);
         });
     }
 
@@ -227,80 +256,91 @@ class FormAdvanced {
         this.initMask();
         this.initFormChoices();
     }
-
 }
 
 // Dragula (Draggable Components)
 class Dragula {
-
     initDragula() {
-
-        document.querySelectorAll("[data-plugin=dragula]")
+        document
+            .querySelectorAll("[data-plugin=dragula]")
 
             .forEach(function (element) {
-
-                const containersIds = JSON.parse(element.getAttribute('data-containers'));
+                const containersIds = JSON.parse(
+                    element.getAttribute("data-containers")
+                );
                 let containers = [];
                 if (containersIds) {
                     for (let i = 0; i < containersIds.length; i++) {
-                        containers.push(document.querySelectorAll("#" + containersIds[i])[0]);
+                        containers.push(
+                            document.querySelectorAll("#" + containersIds[i])[0]
+                        );
                     }
                 } else {
                     containers = [element];
                 }
 
                 // if handle provided
-                const handleClass = element.getAttribute('data-handleclass');
+                const handleClass = element.getAttribute("data-handleclass");
 
                 // init dragula
                 if (handleClass) {
                     dragula(containers, {
                         moves: function (el, container, handle) {
                             return handle.classList.contains(handleClass);
-                        }
+                        },
                     });
                 } else {
                     dragula(containers);
                 }
-
             });
-
     }
 
     init() {
         this.initDragula();
     }
-
-
 }
 
 // Toast Notification
 class ToastNotification {
     initToastNotification() {
-
         document.querySelectorAll("[data-toast]").forEach(function (element) {
             element.addEventListener("click", function () {
                 var toastData = {};
                 if (element.attributes["data-toast-text"]) {
-                    toastData.text = element.attributes["data-toast-text"].value.toString();
+                    toastData.text =
+                        element.attributes["data-toast-text"].value.toString();
                 }
                 if (element.attributes["data-toast-gravity"]) {
-                    toastData.gravity = element.attributes["data-toast-gravity"].value.toString();
+                    toastData.gravity =
+                        element.attributes[
+                            "data-toast-gravity"
+                        ].value.toString();
                 }
                 if (element.attributes["data-toast-position"]) {
-                    toastData.position = element.attributes["data-toast-position"].value.toString();
+                    toastData.position =
+                        element.attributes[
+                            "data-toast-position"
+                        ].value.toString();
                 }
                 if (element.attributes["data-toast-className"]) {
-                    toastData.className = element.attributes["data-toast-className"].value.toString();
+                    toastData.className =
+                        element.attributes[
+                            "data-toast-className"
+                        ].value.toString();
                 }
                 if (element.attributes["data-toast-duration"]) {
-                    toastData.duration = element.attributes["data-toast-duration"].value.toString();
+                    toastData.duration =
+                        element.attributes[
+                            "data-toast-duration"
+                        ].value.toString();
                 }
                 if (element.attributes["data-toast-close"]) {
-                    toastData.close = element.attributes["data-toast-close"].value.toString();
+                    toastData.close =
+                        element.attributes["data-toast-close"].value.toString();
                 }
                 if (element.attributes["data-toast-style"]) {
-                    toastData.style = element.attributes["data-toast-style"].value.toString();
+                    toastData.style =
+                        element.attributes["data-toast-style"].value.toString();
                 }
                 if (element.attributes["data-toast-offset"]) {
                     toastData.offset = element.attributes["data-toast-offset"];
@@ -328,11 +368,10 @@ class ToastNotification {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function (e) {
+document.addEventListener("DOMContentLoaded", function (e) {
     new Components().init();
     new FormValidation().init();
     new FormAdvanced().init();
     new Dragula().init();
     new ToastNotification().init();
 });
-

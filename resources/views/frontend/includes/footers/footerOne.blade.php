@@ -73,13 +73,14 @@
                                             <h5>opening hour</h5>
                                         </div>
                                         <ul>
-                                            <li>Monday – Friday: <span>8am – 4pm</span></li>
-                                            <li>Saturday - Sunday: <span>9am – 12am</span></li>
+                                            <li>Monday <span>12:00 am – 12:00 pm</span></li>
+                                            <li>Saturday <span>12:00 am – 12:00 pm</span></li>
+                                            <li>Saturday <span>12:00 am – 12:00 pm</span></li>
+                                            <li>Thursday <span>12:00 am – 12:00 pm</span></li>
+                                            <li>Friday <span>12:00 am – 12:00 pm</span></li>
+                                            <li>Saturday <span>12:00 am – 12:00 pm</span></li>
+                                            <li>Sunday <span>12:00 am – 12:00 pm</span></li>
                                         </ul>
-                                        <div class="any-question mt-20">
-                                            <h5>Have any questions?</h5>
-                                            <a href="#" class="theme-btn style-two">talk with us <i class="far fa-arrow-alt-right"></i></a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +115,7 @@
                     <img src="{{ asset('/assets/images/shapes/tomato.png') }}" alt="Shape">
                 </div>
                 <div class="shape three">
-                    <img src="{{ asset('/assets/images/shapes/pizza-two.png') }}" alt="Shape">
+                    <img src="{{ asset('/assets/images/shapes/heading1.png') }}" alt="Shape">
                 </div>
             </div>
         </footer>

@@ -56,7 +56,9 @@
                     <div class="col-xl-4 col-lg-6 z-3" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                         @if(isset($column1Foods))
                             @foreach($column1Foods as $index => $menu)
-                                <div class="food-item {{ $loop->last ? 'mb-30' : '' }}" style="cursor: pointer;" onclick="openFoodModal({{ $menu->id }})">
+                                {{-- click food to open order popup add the below line into below div tag --}}
+                                {{--  style="cursor: pointer;" onclick="openFoodModal({{ $menu->id }})" --}}
+                                <div class="food-item {{ $loop->last ? 'mb-30' : '' }}">
                             <div class="content">
                                 <div class="name-desc">
                                             <h5>{{ $menu->name }}</h5>
@@ -78,7 +80,9 @@
                     <div class="col-xl-4 col-lg-6 z-2" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
                         @if(isset($column2Foods))
                             @foreach($column2Foods as $index => $menu)
-                                <div class="food-item {{ $loop->last ? 'mb-30' : '' }}" style="cursor: pointer;" onclick="openFoodModal({{ $menu->id }})">
+                                {{-- click food to open order popup add the below line into below div tag --}}
+                                {{--  style="cursor: pointer;" onclick="openFoodModal({{ $menu->id }})" --}}
+                                <div class="food-item {{ $loop->last ? 'mb-30' : '' }}">
                             <div class="content">
                                 <div class="name-desc">
                                             <h5>{{ $menu->name }}</h5>
@@ -100,7 +104,9 @@
                     <div class="col-xl-4 col-lg-6 z-1" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
                         @if(isset($column3Foods))
                             @foreach($column3Foods as $index => $menu)
-                                <div class="food-item {{ $loop->last ? 'mb-30' : '' }}" style="cursor: pointer;" onclick="openFoodModal({{ $menu->id }})">
+                                {{-- click food to open order popup add the below line into below div tag --}}
+                                {{--  style="cursor: pointer;" onclick="openFoodModal({{ $menu->id }})" --}}
+                                <div class="food-item {{ $loop->last ? 'mb-30' : '' }}">
                             <div class="content">
                                 <div class="name-desc">
                                             <h5>{{ $menu->name }}</h5>

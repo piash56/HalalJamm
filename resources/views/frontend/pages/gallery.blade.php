@@ -35,104 +35,44 @@
                     </div>
                 </div>
                 
-                <ul class="nav gallery-nav food-menu-tab mb-40" role="tablist" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                    <li>
-                        <button class="nav-link active" data-filter="*">
-                            <i class="flaticon-cupcake"></i>
-                            <span>dessert</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="nav-link" data-filter=".vegetarian">
-                            <i class="flaticon-broccoli"></i>
-                            <span>vegetarian</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="nav-link" data-filter=".potatoes">
-                            <i class="flaticon-fried-potatoes"></i>
-                            <span>potatoes</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="nav-link" data-filter=".seafood">
-                            <i class="flaticon-crab"></i>
-                            <span>seafood</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="nav-link" data-filter=".drinks">
-                            <i class="flaticon-poinsettia"></i>
-                            <span>drinks</span>
-                        </button>
-                    </li>
-                </ul>
-                
-                <div class="row gallery-active">
-                    <div class="col-lg-4 col-sm-6 item potatoes">
-                        <div class="gallery-item-three" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/gallery/gallery-three1.jpg') }}" alt="Gallery">
-                            <h3>Chicken  burger</h3>
-                            <span class="category">Delicious food</span>
+                @if($galleryImages->count() > 0)
+                    <!-- Desktop View (4 columns) -->
+                    <div class="row gallery-grid d-none d-lg-flex">
+                        @foreach($galleryImages as $index => $image)
+                        <div class="col-xl-3 col-lg-4 mb-30" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}" data-aos-duration="1500" data-aos-offset="50">
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="{{ $image->image_url }}" alt="{{ $image->title ?: 'Gallery Image' }}">
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    
+                    <!-- Mobile View (2x2 Grid) -->
+                    <div class="gallery-mobile-grid d-lg-none">
+                        <div class="row">
+                            @foreach($galleryImages as $index => $image)
+                            <div class="col-6 mb-3">
+                                <div class="gallery-item gallery-item-mobile" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50" data-aos-delay="{{ $index * 100 }}">
+                                    <div class="gallery-image-mobile">
+                                        <img src="{{ $image->image_url }}" alt="{{ $image->title ?: 'Gallery Image' }}">
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 item vegetarian drinks">
-                        <div class="gallery-item-three" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/gallery/gallery-three2.jpg') }}" alt="Gallery">
-                            <h3>yamee Chicken fry</h3>
-                            <span class="category">Delicious food</span>
+                @else
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="alert alert-info">
+                                <h4>No Gallery Images Available</h4>
+                                <p>Please add some images to the gallery from the admin dashboard.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 item seafood">
-                        <div class="gallery-item-three" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/gallery/gallery-three3.jpg') }}" alt="Gallery">
-                            <h3>beef vegetable hot dog</h3>
-                            <span class="category">Delicious food</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 item potatoes drinks">
-                        <div class="gallery-item-three" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/gallery/gallery-three4.jpg') }}" alt="Gallery">
-                            <h3>hot dog with mustard</h3>
-                            <span class="category">Delicious food</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 item vegetarian">
-                        <div class="gallery-item-three" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/gallery/gallery-three5.jpg') }}" alt="Gallery">
-                            <h3>traditional Italian pizza</h3>
-                            <span class="category">Delicious food</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 item seafood drinks">
-                        <div class="gallery-item-three" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/gallery/gallery-three6.jpg') }}" alt="Gallery">
-                            <h3>Chicken  burger</h3>
-                            <span class="category">Delicious food</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 item potatoes">
-                        <div class="gallery-item-three" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/gallery/gallery-three7.jpg') }}" alt="Gallery">
-                            <h3>Chicken  burger</h3>
-                            <span class="category">Delicious food</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 item vegetarian drinks">
-                        <div class="gallery-item-three" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/gallery/gallery-three8.jpg') }}" alt="Gallery">
-                            <h3>Chicken  burger</h3>
-                            <span class="category">Delicious food</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 item seafood drinks">
-                        <div class="gallery-item-three" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                            <img src="{{ asset('/assets/images/gallery/gallery-three9.jpg') }}" alt="Gallery">
-                            <h3>Chicken  burger</h3>
-                            <span class="category">Delicious food</span>
-                        </div>
-                    </div>
-                </div>
+                @endif
             </div>
         </section>
         <!-- Gallery Area end -->

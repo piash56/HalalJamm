@@ -15,11 +15,6 @@
                               <div>
                                     <p class="card-title mb-0">Total Offers ({{ $offers->total() }})</p>
                               </div>
-                              <div class="d-flex gap-2">
-                                    <a href="{{ route('admin.offers.add') }}" class="btn btn-primary">
-                                          <i class="ri-add-line me-1"></i> Add Offer
-                                    </a>
-                              </div>
                        </div>
                        <div class="card-body">
                               <!-- Search form -->

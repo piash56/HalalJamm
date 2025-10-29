@@ -28,15 +28,6 @@
                </li>
 
                <li class="menu-item">
-                    <a class="menu-link" href="{{ route('admin.second', ['apps', 'orders']) }}">
-                         <span class="nav-icon">
-                              <i class="ri-shopping-cart-line"></i>
-                         </span>
-                         <span class="nav-text"> Orders </span>
-                    </a>
-               </li>
-
-               <li class="menu-item">
                     <a class="menu-link" href="{{ route('admin.foods.index') }}">
                          <span class="nav-icon">
                               <i class="ri-restaurant-2-line"></i>
@@ -64,14 +55,14 @@
                </li>
 
                <li class="menu-item">
-                    <a class="menu-link" href="{{ route('admin.second', ['apps', 'customers']) }}">
+                    <a class="menu-link" href="{{ route('admin.hero-sections.index') }}">
                          <span class="nav-icon">
-                              <i class="ri-group-2-line"></i>
+                              <i class="ri-home-4-line"></i>
                          </span>
-                         <span class="nav-text"> Customers </span>
+                         <span class="nav-text"> Hero Sections </span>
                     </a>
                </li>
-
+               
                <li class="menu-item">
                     <a class="menu-link" href="{{ route('admin.offers.index') }}">
                          <span class="nav-icon">
@@ -82,13 +73,30 @@
                </li>
 
                <li class="menu-item">
-                    <a class="menu-link" href="{{ route('admin.second', ['apps', 'settings']) }}">
+                    <a class="menu-link" href="{{ route('admin.offer-sections.index') }}">
                          <span class="nav-icon">
-                              <i class="ri-store-3-line"></i>
+                              <i class="ri-gift-line"></i>
                          </span>
-                         <span class="nav-text"> Store Settings </span>
+                         <span class="nav-text"> Offer Sections </span>
                     </a>
                </li>
+
+        <li class="menu-item">
+            <a class="menu-link" href="{{ route('admin.gallery.index') }}">
+                <span class="nav-icon">
+                    <i class="ri-image-line"></i>
+                </span>
+                <span class="nav-text"> Gallery </span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a class="menu-link" href="{{ route('admin.reviews.index') }}">
+                <span class="nav-icon">
+                    <i class="ri-star-line"></i>
+                </span>
+                <span class="nav-text"> Reviews </span>
+            </a>
+        </li>
           </ul>
      </div>
 </div>

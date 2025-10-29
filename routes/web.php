@@ -14,6 +14,10 @@ use App\Http\Controllers\AdminController\SettingsController;
 use App\Http\Controllers\AdminController\OrderController;
 use App\Http\Controllers\AdminController\ProfileController;
 use App\Http\Controllers\AdminController\OfferController;
+use App\Http\Controllers\AdminController\HeroSectionController;
+use App\Http\Controllers\AdminController\OfferSectionController;
+use App\Http\Controllers\AdminController\GalleryController;
+use App\Http\Controllers\AdminController\ReviewController;
 
 /**
  *    Frontend
@@ -130,14 +134,45 @@ Route::prefix('admin')->middleware(['admin.auth'])->group(function () {
 
     // Offer routes with professional URLs (must be before catch-all routes)
     Route::get('offers', [OfferController::class, 'index'])->name('admin.offers.index');
-    Route::get('offers/add', [OfferController::class, 'create'])->name('admin.offers.add');
     Route::post('offers', [OfferController::class, 'store'])->name('admin.offers.store');
     Route::get('offer/{offer}/edit', [OfferController::class, 'edit'])->name('admin.offer.edit');
     Route::put('offer/{offer}', [OfferController::class, 'update'])->name('admin.offer.update');
     Route::delete('offer/{offer}', [OfferController::class, 'destroy'])->name('admin.offer.destroy');
 
-    // Catch-all routes (must be last)
-    Route::get('{first}/{second}/{third}', [RoutingController::class, 'thirdLevel'])->name('admin.third');
-    Route::get('{first}/{second}', [RoutingController::class, 'secondLevel'])->name('admin.second');
-    Route::get('{any}', [RoutingController::class, 'root'])->name('admin.any');
+    // Hero Section routes
+    Route::get('hero-sections', [HeroSectionController::class, 'index'])->name('admin.hero-sections.index');
+    Route::post('hero-sections', [HeroSectionController::class, 'store'])->name('admin.hero-sections.store');
+    Route::get('hero-section/{heroSection}/edit', [HeroSectionController::class, 'edit'])->name('admin.hero-sections.edit');
+    Route::put('hero-section/{heroSection}', [HeroSectionController::class, 'update'])->name('admin.hero-sections.update');
+    Route::delete('hero-section/{heroSection}', [HeroSectionController::class, 'destroy'])->name('admin.hero-sections.destroy');
+
+    // Offer Section routes
+    Route::get('offer-sections', [OfferSectionController::class, 'index'])->name('admin.offer-sections.index');
+    Route::post('offer-sections', [OfferSectionController::class, 'store'])->name('admin.offer-sections.store');
+    Route::get('offer-section/{offerSection}/edit', [OfferSectionController::class, 'edit'])->name('admin.offer-sections.edit');
+    Route::put('offer-section/{offerSection}', [OfferSectionController::class, 'update'])->name('admin.offer-sections.update');
+    Route::delete('offer-section/{offerSection}', [OfferSectionController::class, 'destroy'])->name('admin.offer-sections.destroy');
+
+    // Gallery routes
+    Route::get('gallery', [GalleryController::class, 'index'])->name('admin.gallery.index');
+    Route::get('gallery/create', [GalleryController::class, 'create'])->name('admin.gallery.create');
+    Route::post('gallery', [GalleryController::class, 'store'])->name('admin.gallery.store');
+    Route::get('gallery/{gallery}/edit', [GalleryController::class, 'edit'])->name('admin.gallery.edit');
+    Route::put('gallery/{gallery}', [GalleryController::class, 'update'])->name('admin.gallery.update');
+    Route::delete('gallery/{gallery}', [GalleryController::class, 'destroy'])->name('admin.gallery.destroy');
+    Route::post('gallery/update-order', [GalleryController::class, 'updateOrder'])->name('admin.gallery.update-order');
+
+    // Reviews routes
+    Route::get('reviews', [ReviewController::class, 'index'])->name('admin.reviews.index');
+    Route::get('reviews/create', [ReviewController::class, 'create'])->name('admin.reviews.create');
+    Route::post('reviews', [ReviewController::class, 'store'])->name('admin.reviews.store');
+    Route::get('reviews/{review}', [ReviewController::class, 'show'])->name('admin.reviews.show');
+    Route::get('reviews/{review}/edit', [ReviewController::class, 'edit'])->name('admin.reviews.edit');
+    Route::put('reviews/{review}', [ReviewController::class, 'update'])->name('admin.reviews.update');
+    Route::delete('reviews/{review}', [ReviewController::class, 'destroy'])->name('admin.reviews.destroy');
 });
+
+// Catch-all routes (must be last)
+Route::get('{first}/{second}/{third}', [RoutingController::class, 'thirdLevel'])->name('admin.third');
+Route::get('{first}/{second}', [RoutingController::class, 'secondLevel'])->name('admin.second');
+Route::get('{any}', [RoutingController::class, 'root'])->name('admin.any');

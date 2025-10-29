@@ -8440,3 +8440,709 @@ blockquote {
   top: -65px;
   color: var(--heading-color);
   background-image: url(../images/shapes/scroll-top-yellow-bg.png); }
+
+/* Custom styles for dynamic hero section price */
+.hero-images .price .price-text {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.hero-images .price .price-amount {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+/* Gallery Slider Styles */
+.gallery-slider-area {
+  background: #f8f9fa;
+}
+
+.gallery-slider-container {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.gallery-slider-container:active {
+  cursor: grabbing;
+}
+
+.gallery-slider-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  margin-bottom: 20px;
+}
+
+.gallery-row::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+.gallery-slide {
+  flex: 0 0 calc(25% - 15px);
+  min-width: 250px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Gallery navigation styles */
+.gallery-slider-container:hover {
+  cursor: grab;
+}
+
+.gallery-slider-container:active {
+  cursor: grabbing;
+}
+
+/* Google Reviews Section Styles */
+.reviews-summary {
+  text-align: right;
+}
+
+.rating-display {
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.rating-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.rating-stars i {
+  color: #FFD700;
+  font-size: 18px;
+}
+
+.total-reviews {
+  font-size: 16px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.reviews-slider-container {
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.reviews-slider-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.reviews-slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.reviews-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.review-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.review-rating .stars {
+  display: flex;
+  gap: 2px;
+}
+
+.review-rating .stars i {
+  color: #FFD700;
+  font-size: 14px;
+}
+
+.review-date {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.review-text {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.review-text-content {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.more-link {
+  color: #007bff;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.more-link:hover {
+  color: #0056b3;
+}
+
+.review-text-full {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.review-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.author-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.review-source {
+  margin-left: auto;
+}
+
+.google-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.slider-nav:hover {
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slider-nav.prev {
+  left: 15px;
+}
+
+.slider-nav.next {
+  right: 15px;
+}
+
+.slider-nav i {
+  color: #333;
+  font-size: 16px;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .reviews-summary {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .rating-display {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  
+  .slider-nav {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .slider-nav.prev {
+    left: 10px;
+  }
+  
+  .slider-nav.next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .rating-number {
+    font-size: 36px;
+  }
+  
+  .review-card {
+    padding: 15px;
+  }
+  
+  .slider-nav {
+    display: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .gallery-slide {
+    flex: 0 0 calc(33.333% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-slide {
+    flex: 0 0 calc(50% - 10px);
+    min-width: 200px;
+  }
+  
+  .gallery-image {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-slide {
+    flex: 0 0 calc(100% - 10px);
+    min-width: 180px;
+  }
+  
+  .gallery-image {
+    height: 120px;
+  }
+}
+
+/* Mobile-specific fixes to prevent horizontal scrolling */
+@media (max-width: 991px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative;
+  }
+  
+  body {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Prevent any element from causing horizontal overflow */
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .container, .container-fluid {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  /* Fix for images and media */
+  img, video, iframe, object, embed {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Fix for any absolute positioned elements */
+  .position-absolute, .position-fixed {
+    max-width: 100vw !important;
+  }
+  
+  /* Prevent horizontal scrolling on gallery */
+  .gallery-slider-container {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  
+  .gallery-slider-wrapper {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  
+  .gallery-row {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  
+  /* Fix for any sections that might cause horizontal overflow */
+  .hero-area, .popular-menu-area, .gallery-slider-area, .testimonials-area, .why-choose-area {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  
+  /* Fix for any absolute positioned elements that might extend beyond viewport */
+  .hero-shapes, .footer-shapes, .testimonials-shapes {
+    max-width: 100vw !important;
+  }
+  
+  /* Ensure all text content doesn't cause horizontal overflow */
+  h1, h2, h3, h4, h5, h6, p, span, div, a {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Fix for any flex containers */
+  .d-flex, .flex-wrap, .justify-content-between, .justify-content-center {
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Mobile Gallery Grid Styles */
+.gallery-mobile-grid .gallery-item-mobile {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-mobile-grid .gallery-item-mobile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-image-mobile {
+  width: 100% !important;
+  height: 0 !important;
+  padding-bottom: 100% !important; /* Creates perfect square aspect ratio */
+  position: relative !important;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: block;
+  margin: 0;
+}
+
+.gallery-image-mobile img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-image-mobile:hover img {
+  transform: scale(1.05);
+}
+
+/* Force square aspect ratio for mobile gallery */
+@media (max-width: 991px) {
+  .gallery-mobile-grid .gallery-image-mobile {
+    width: 100% !important;
+    height: 0 !important;
+    padding-bottom: 100% !important;
+    aspect-ratio: 1/1 !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    max-height: none !important;
+    min-height: 0 !important;
+  }
+  
+  .gallery-mobile-grid .gallery-image-mobile img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    max-height: 100% !important;
+    min-height: 0 !important;
+  }
+  
+  /* Override any Bootstrap or other CSS that might interfere */
+  .gallery-mobile-grid .col-6 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  .gallery-mobile-grid .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+  }
+}
+
+/* Additional specific targeting for perfect squares */
+@media (max-width: 991px) {
+  .gallery-mobile-grid .col-6 .gallery-item-mobile .gallery-image-mobile {
+    width: 100% !important;
+    height: 0 !important;
+    padding-bottom: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 15px !important;
+    /* Modern aspect-ratio property as additional fallback */
+    aspect-ratio: 1 / 1 !important;
+  }
+  
+  .gallery-mobile-grid .col-6 .gallery-item-mobile .gallery-image-mobile img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 15px !important;
+  }
+  
+  /* Ensure the container doesn't have any height constraints */
+  .gallery-mobile-grid .col-6 .gallery-item-mobile {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+}
+
+/* Responsive adjustments for mobile gallery */
+@media (max-width: 575px) {
+  .gallery-mobile-grid .col-6 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .gallery-mobile-grid .col-6 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* Ensure proper spacing for mobile gallery */
+.gallery-mobile-grid .row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+/* Mobile gallery pagination or infinite scroll styling */
+.gallery-mobile-grid {
+  position: relative;
+}
+
+.gallery-mobile-grid .gallery-item-mobile {
+  transition: all 0.3s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-mobile-grid .gallery-item-mobile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure Bootstrap columns don't interfere with square aspect ratio */
+.gallery-mobile-grid .col-6 {
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-mobile-grid .col-6 .gallery-item-mobile {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-mobile-grid .col-6 .gallery-image-mobile {
+  flex: 1;
+  width: 100%;
+}
+
+/* Gallery Page Styles */
+.gallery-grid .gallery-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid .gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-grid .gallery-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 aspect ratio for desktop */
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.gallery-grid .gallery-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid .gallery-item:hover .gallery-image img {
+  transform: scale(1.05);
+}
+
+/* Responsive Gallery Grid */
+@media (max-width: 1199px) {
+  .gallery-grid .gallery-image {
+    padding-bottom: 80%; /* Slightly taller on smaller screens */
+  }
+}
+
+@media (max-width: 991px) {
+  .gallery-grid .gallery-image {
+    padding-bottom: 85%; /* Even taller on tablets */
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery-grid .gallery-image {
+    padding-bottom: 90%; /* Tallest on mobile */
+  }
+}
+
+

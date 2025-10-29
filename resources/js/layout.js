@@ -1,7 +1,6 @@
 /**
-* Theme: Metor- Responsive Bootstrap 5 Admin Dashboard
-* Author: FoxPixel
-* Module/App: Theme Layout Customizer Js
+* Halal Jamm Admin
+* Module/App: Theme Layout Customizer JS
 */
 
 class ThemeLayout {
