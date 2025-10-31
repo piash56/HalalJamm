@@ -9061,6 +9061,23 @@ blockquote {
   }
 }
 
+/* Mobile: prioritize vertical scrolling for other sticky sections */
+@media (max-width: 991px) {
+  .offer-area,
+  .offer-section,
+  .popular-menu-area,
+  .popular-menu-section,
+  footer,
+  .footer-area,
+  .footer-bottom,
+  .gallery-slider-area,
+  .why-choose-area {
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+}
+
 /* Mobile gallery pagination or infinite scroll styling */
 .gallery-mobile-grid {
   position: relative;

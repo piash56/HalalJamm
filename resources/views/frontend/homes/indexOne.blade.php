@@ -1347,7 +1347,7 @@
                     </div>
                 </div>
             </div>
-            <div class="cta-bg" style="background-image: url(assets/images/background/fresh-fish.png)"></div>
+            <div class="cta-bg" style="background-image: url(assets/images/background/kabab-platter-cta.png)"></div>
         </section>
         <!-- Call To Action Area end -->
         

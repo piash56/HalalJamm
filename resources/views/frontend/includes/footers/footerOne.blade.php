@@ -27,10 +27,10 @@
                                 </div>
                                 <p>Fresh halal street food crafted with passion. Every bite tells a story of authentic New York cuisine.</p>
                                 <div class="social-style-one mt-15">
-                                    <a href="{{ route('contact') }}"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="{{ route('contact') }}"><i class="fab fa-twitter"></i></a>
-                                    <a href="{{ route('contact') }}"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="{{ route('contact') }}"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://facebook.com/halal.jamm"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://instagram.com/halal.jamm/"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://tiktok.com"><i class="fab fa-tiktok"></i></a>
+                                    <a href="{{ route('contact') }}"><i class="fab fa-globe"></i></a>
                                 </div>
                             </div>
                         </div>
