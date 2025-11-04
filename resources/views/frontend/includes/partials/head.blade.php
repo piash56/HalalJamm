@@ -10,7 +10,7 @@
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="assets/images/logos/favicon.png" type="image/x-icon">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Flaticon -->
     <link rel="stylesheet" href="{{ asset('/assets/css/flaticon.min.css') }}">
@@ -28,3 +28,5 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/slick.min.css') }}">
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+    <!-- Custom Styles (Separated from inline styles for better performance) -->
+    <link rel="stylesheet" href="{{ asset('/assets/css/custom.css') }}">

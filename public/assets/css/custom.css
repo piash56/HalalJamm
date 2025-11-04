@@ -1,0 +1,489 @@
+/* ============================================
+   Halal Jamm - Custom Styles
+   ============================================
+   This file contains all custom styles that were
+   previously inline in blade templates.
+   Best Practice: Keep all CSS in separate files
+   for better performance and maintainability.
+   ============================================ */
+
+/* ============================================
+   HOME PAGE STYLES
+   ============================================ */
+
+/* 1. Hero section primary text uppercase */
+.hero-content h1 {
+    font-size: 56px !important;
+    text-transform: uppercase !important;
+}
+
+@media only screen and (max-width: 991px) {
+    .hero-content h1 {
+        font-size: 58px !important;
+    }
+}
+
+.hero-content p {
+    font-size: 22px !important;
+}
+
+/* 2. Marquee items before offers section - color #ff24006b */
+.headline-area .marquee-wrap .marquee-item {
+    color: #ff24006b !important;
+    -webkit-text-stroke-color: #ff24006b !important;
+}
+
+/* 3. Offers card title 44px uppercase, available items 14px uppercase */
+.offer-card-item .title {
+    font-size: 44px !important;
+    text-transform: uppercase !important;
+}
+
+.offer-card-item .available-item {
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+}
+
+/* 4. Special offer section h2 48px uppercase, badge text uppercase, price 52px */
+.offer-area .offer-content h2 {
+    font-size: 48px !important;
+    text-transform: uppercase !important;
+}
+
+.offer-area .offer-image .offer-badge > span {
+    font-size: 32px !important;
+    text-transform: uppercase !important;
+}
+
+.offer-area .offer-image .offer-badge .price {
+    font-size: 52px !important;
+}
+
+/* 5. Gallery section h2 uppercase */
+.gallery-slider-area .section-title h2 {
+    font-size: 48px !important;
+    text-transform: uppercase !important;
+}
+
+/* 6. Popular menu h2 32px uppercase */
+.popular-menu-area .section-title h2 {
+    font-size: 32px !important;
+    text-transform: uppercase !important;
+}
+
+/* 7. Popular menu food items h5 18px uppercase, p 14px */
+.popular-menu-area .food-item h5 {
+    font-size: 18px !important;
+    text-transform: uppercase !important;
+}
+
+.popular-menu-area .food-item p {
+    font-size: 14px !important;
+}
+
+/* 8. Customer feedback h2 32px uppercase */
+.testimonials-area .section-title h2 {
+    font-size: 32px !important;
+    text-transform: uppercase !important;
+}
+
+/* 9. CTA section h2 uppercase, halal certified 28px uppercase */
+.cta-area .section-title h2 {
+    font-size: 38px !important;
+    text-transform: uppercase !important;
+}
+
+.cta-area .cta-badge span {
+    font-size: 28px !important;
+    text-transform: uppercase !important;
+}
+
+/* ============================================
+   ALL PAGES - PAGE TITLE STYLES
+   ============================================ */
+
+.page-banner-area .page-title {
+    font-size: 68px !important;
+    text-transform: uppercase !important;
+}
+
+/* Mobile responsive for page titles */
+@media only screen and (max-width: 991px) {
+    .page-banner-area .page-title {
+        font-size: 48px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .page-banner-area .page-title {
+        font-size: 36px !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .page-banner-area .page-title {
+        font-size: 28px !important;
+    }
+}
+
+/* ============================================
+   ALL MENUS PAGE STYLES
+   ============================================
+   Note: These styles override the home page styles
+   for the allMenus page specifically
+   ============================================ */
+
+/* Menus section heading h2 - 30px and uppercase */
+.popular-menu-area .section-title h2 {
+    font-size: 30px !important;
+    text-transform: uppercase !important;
+}
+
+/* Menu title h5 - 18px and uppercase */
+.popular-menu-area .food-item h5 {
+    font-size: 18px !important;
+    text-transform: uppercase !important;
+}
+
+/* Menu description p - 14px */
+.popular-menu-area .food-item p {
+    font-size: 14px !important;
+}
+
+/* Mobile responsive for menus page */
+@media only screen and (max-width: 991px) {
+    .popular-menu-area .section-title h2 {
+        font-size: 26px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .popular-menu-area .section-title h2 {
+        font-size: 22px !important;
+    }
+    
+    .popular-menu-area .food-item h5 {
+        font-size: 16px !important;
+    }
+}
+
+/* ============================================
+   ABOUT US PAGE STYLES
+   ============================================ */
+
+/* Know about halaljamm heading h2 - 30px and uppercase */
+.about-us-area-four .section-title h2 {
+    font-size: 30px !important;
+    text-transform: uppercase !important;
+}
+
+/* Marquee items color same as home page */
+.headline-area .marquee-wrap .marquee-item {
+    color: #ff24006b !important;
+    -webkit-text-stroke-color: #ff24006b !important;
+}
+
+/* We provide halal text heading h2 - 36px and uppercase */
+.food-category-area .section-title h2 {
+    font-size: 36px !important;
+    text-transform: uppercase !important;
+}
+
+/* Featured items content h4 - 18px and uppercase */
+.featured-item h4 {
+    font-size: 18px !important;
+    text-transform: uppercase !important;
+}
+
+/* Book a table section right side heading h2 - 34px and uppercase */
+.booking-table-area-two .booking-table-content .section-title h2 {
+    font-size: 34px !important;
+    text-transform: uppercase !important;
+}
+
+/* Professional chefs section h2 - uppercase */
+.chefs-area .section-title h2 {
+    font-size: 38px !important;
+    text-transform: uppercase !important;
+}
+
+/* Mobile responsive for about page */
+@media only screen and (max-width: 991px) {
+    .about-us-area-four .section-title h2 {
+        font-size: 26px !important;
+    }
+    
+    .food-category-area .section-title h2 {
+        font-size: 30px !important;
+    }
+    
+    .booking-table-area-two .booking-table-content .section-title h2 {
+        font-size: 28px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .about-us-area-four .section-title h2 {
+        font-size: 22px !important;
+    }
+    
+    .food-category-area .section-title h2 {
+        font-size: 24px !important;
+    }
+    
+    .featured-item h4 {
+        font-size: 16px !important;
+    }
+    
+    .booking-table-area-two .booking-table-content .section-title h2 {
+        font-size: 24px !important;
+    }
+}
+
+/* ============================================
+   CONTACT PAGE STYLES
+   ============================================ */
+
+/* Contact page heading h2 - 38px and uppercase */
+.contact-page-area .section-title h2 {
+    font-size: 38px !important;
+    text-transform: uppercase !important;
+}
+
+/* Contact info content span - 14px */
+.contact-info-item .content .title {
+    font-size: 14px !important;
+}
+
+/* Contact info h6 - 17px */
+.contact-info-item .content h6 {
+    font-size: 17px !important;
+}
+
+/* Mobile responsive for contact page */
+@media only screen and (max-width: 991px) {
+    .contact-page-area .section-title h2 {
+        font-size: 32px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .contact-page-area .section-title h2 {
+        font-size: 28px !important;
+    }
+    
+    .contact-info-item .content h6 {
+        font-size: 15px !important;
+    }
+}
+
+/* ============================================
+   GALLERY PAGE STYLES
+   ============================================ */
+
+/* Gallery page heading h2 - 38px and uppercase */
+.photo-gallery-area .section-title h2 {
+    font-size: 38px !important;
+    text-transform: uppercase !important;
+}
+
+/* Mobile responsive for gallery page */
+@media only screen and (max-width: 991px) {
+    .photo-gallery-area .section-title h2 {
+        font-size: 32px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .photo-gallery-area .section-title h2 {
+        font-size: 28px !important;
+    }
+}
+
+/* ============================================
+   FOOTER - NEWSLETTER SECTION STYLES
+   (Applied to all pages)
+   ============================================ */
+
+/* Newsletter section h2 - 36px and uppercase */
+.main-footer .footer-top .section-title h2 {
+    font-size: 36px !important;
+    text-transform: uppercase !important;
+}
+
+/* Footer h5 uppercase */
+.main-footer .footer-title h5 {
+    text-transform: uppercase !important;
+}
+
+/* Mobile responsive for newsletter section */
+@media only screen and (max-width: 991px) {
+    .main-footer .footer-top .section-title h2 {
+        font-size: 30px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .main-footer .footer-top .section-title h2 {
+        font-size: 20px !important;
+    }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE - GLOBAL
+   ============================================ */
+
+/* Hero section mobile adjustments */
+@media only screen and (max-width: 767px) {
+    .hero-content h1 {
+        font-size: 42px !important;
+    }
+    
+    .hero-content p {
+        font-size: 18px !important;
+    }
+}
+
+/* Offer section mobile adjustments */
+@media only screen and (max-width: 991px) {
+    .offer-area .offer-content h2 {
+        font-size: 36px !important;
+    }
+    
+    .offer-area .offer-image .offer-badge > span {
+        font-size: 24px !important;
+    }
+    
+    .offer-area .offer-image .offer-badge .price {
+        font-size: 40px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .offer-area .offer-content h2 {
+        font-size: 28px !important;
+    }
+    
+    .offer-area .offer-image .offer-badge .price {
+        font-size: 32px !important;
+    }
+}
+
+/* Offer cards mobile adjustments */
+@media only screen and (max-width: 991px) {
+    .offer-card-item .title {
+        font-size: 32px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .offer-card-item .title {
+        font-size: 58px !important;
+    }
+    
+    .offer-card-item .available-item {
+        font-size: 14px !important;
+    }
+}
+
+/* Gallery section mobile */
+@media only screen and (max-width: 767px) {
+    .gallery-slider-area .section-title h2 {
+        font-size: 24px !important;
+    }
+}
+
+/* Popular menu mobile */
+@media only screen and (max-width: 767px) {
+    .popular-menu-area .section-title h2 {
+        font-size: 20px !important;
+    }
+    
+    .popular-menu-area .food-item h5 {
+        font-size: 16px !important;
+    }
+    
+    .popular-menu-area .food-item p {
+        font-size: 12px !important;
+    }
+}
+
+/* ============================================
+   FOOD ITEM PRICE FIX - PREVENT WRAPPING
+   ============================================ */
+
+/* Fix price wrapping on mobile for food items */
+.food-item .content .price {
+    min-width: 60px !important;
+    width: auto !important;
+    max-width: none !important;
+    flex-shrink: 0 !important;
+}
+
+.food-item .content .price span {
+    white-space: nowrap !important;
+    display: inline-block !important;
+    word-break: keep-all !important;
+}
+
+/* Mobile specific adjustments for food item prices */
+@media only screen and (max-width: 767px) {
+    .food-item .content .price {
+        min-width: 70px !important;
+        width: auto !important;
+    }
+    
+    .food-item .content .price span {
+        font-size: 20px !important;
+        white-space: nowrap !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .food-item .content .price {
+        min-width: 65px !important;
+    }
+    
+    .food-item .content .price span {
+        font-size: 18px !important;
+    }
+}
+
+/* Ensure food item layout doesn't break on mobile */
+@media only screen and (max-width: 767px) {
+    .food-item .content {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+    }
+    
+    .food-item .content .name-desc {
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+    
+    .food-item .content .price {
+        flex-shrink: 0 !important;
+        margin-left: auto !important;
+    }
+}
+
+/* Testimonials mobile */
+@media only screen and (max-width: 767px) {
+    .testimonials-area .section-title h2 {
+        font-size: 24px !important;
+    }
+}
+
+/* CTA section mobile */
+@media only screen and (max-width: 767px) {
+    .cta-area .section-title h2 {
+        font-size: 28px !important;
+    }
+    
+    .cta-area .cta-badge span {
+        font-size: 22px !important;
+    }
+}
+

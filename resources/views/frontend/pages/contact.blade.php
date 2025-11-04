@@ -1,6 +1,7 @@
 @extends('frontend.layouts.app')
 @section('title', 'Contact')
 @section('content')
+
     <!-- header area -->
     @include('frontend.includes.headers.headerOne')
     <!-- header area end -->
