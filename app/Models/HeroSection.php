@@ -15,7 +15,8 @@ class HeroSection extends Model
         'hero_image',
         'price_text',
         'price',
-        'is_active'
+        'is_active',
+        'sort_order'
     ];
 
     protected $casts = [

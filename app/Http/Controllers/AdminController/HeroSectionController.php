@@ -15,7 +15,7 @@ class HeroSectionController extends Controller
      */
     public function index()
     {
-        $heroSections = HeroSection::orderBy('created_at', 'desc')->get();
+        $heroSections = HeroSection::orderBy('sort_order', 'asc')->orderBy('created_at', 'desc')->get();
         return view('admin.hero-sections.index', compact('heroSections'));
     }
 
@@ -41,11 +41,13 @@ class HeroSectionController extends Controller
             'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'price_text' => 'nullable|string|max:255',
             'price' => 'nullable|numeric|min:0',
-            'is_active' => 'boolean'
+            'is_active' => 'boolean',
+            'sort_order' => 'nullable|integer|min:0'
         ]);
 
         $data = $request->all();
         $data['is_active'] = $request->has('is_active');
+        $data['sort_order'] = $request->input('sort_order', 0);
 
         // Handle image upload
         if ($request->hasFile('hero_image')) {
@@ -84,11 +86,13 @@ class HeroSectionController extends Controller
             'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'price_text' => 'nullable|string|max:255',
             'price' => 'nullable|numeric|min:0',
-            'is_active' => 'boolean'
+            'is_active' => 'boolean',
+            'sort_order' => 'nullable|integer|min:0'
         ]);
 
         $data = $request->all();
         $data['is_active'] = $request->has('is_active');
+        $data['sort_order'] = $request->input('sort_order', $heroSection->sort_order ?? 0);
 
         // Handle image upload
         if ($request->hasFile('hero_image')) {

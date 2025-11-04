@@ -141,6 +141,7 @@ Route::prefix('admin')->middleware(['admin.auth'])->group(function () {
 
     // Hero Section routes
     Route::get('hero-sections', [HeroSectionController::class, 'index'])->name('admin.hero-sections.index');
+    Route::get('hero-sections/create', [HeroSectionController::class, 'create'])->name('admin.hero-sections.create');
     Route::post('hero-sections', [HeroSectionController::class, 'store'])->name('admin.hero-sections.store');
     Route::get('hero-section/{heroSection}/edit', [HeroSectionController::class, 'edit'])->name('admin.hero-sections.edit');
     Route::put('hero-section/{heroSection}', [HeroSectionController::class, 'update'])->name('admin.hero-sections.update');

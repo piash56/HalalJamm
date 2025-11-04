@@ -33,8 +33,9 @@ class HomeController extends Controller
             ->take(5)
             ->get();
 
-        // Get active hero section
-        $heroSection = HeroSection::active()->first();
+        // Get all active hero sections ordered by sort_order
+        $heroSections = HeroSection::active()->orderBy('sort_order', 'asc')->orderBy('created_at', 'asc')->get();
+        $heroSection = $heroSections->first(); // For backward compatibility
 
         // Get active offer section
         $offerSection = OfferSection::active()->first();
@@ -64,7 +65,7 @@ class HomeController extends Controller
             'google_url' => '#', // You can set this to your Google Maps URL
         ];
 
-        return view('frontend.homes.indexOne', compact('bodyClass', 'popularMenus', 'offers', 'heroSection', 'offerSection', 'featuredGallery', 'googleReviews'));
+        return view('frontend.homes.indexOne', compact('bodyClass', 'popularMenus', 'offers', 'heroSection', 'heroSections', 'offerSection', 'featuredGallery', 'googleReviews'));
     }
     // Home Two 
     public function indexTwo()

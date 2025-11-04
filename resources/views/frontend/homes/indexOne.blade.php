@@ -10,53 +10,97 @@
        
         
         <!-- Hero Area Start -->
-        <section class="hero-area bgs-cover pt-180 rpt-150 pb-100 rel z-1" style="background-image: url(assets/images/background/hero.jpg)">
+        <section class="hero-area bgs-cover pt-180 rpt-150 pb-100 rel z-1 hero-slider-section" style="background-image: url(assets/images/background/hero.jpg)">
+            @if($heroSections && $heroSections->count() > 1)
+            <!-- Slider Navigation Buttons -->
+            <div class="hero-slider-nav">
+                <button class="hero-slider-btn hero-slider-prev" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="hero-slider-btn hero-slider-next" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            @endif
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <div class="hero-content text-white" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                            @if($heroSection)
-                                @if($heroSection->small_text)
-                                    <span class="sub-title mb-35"><i class="far fa-hamburger"></i>{{ $heroSection->small_text }}</span>
-                                @endif
-                                <h1>{{ $heroSection->primary_text }}</h1>
-                                @if($heroSection->secondary_text)
-                                    <p>{{ $heroSection->secondary_text }}</p>
-                                @endif
-                                @if($heroSection->button_text && $heroSection->button_url)
-                                    <a href="{{ $heroSection->button_url }}" target="_blank" class="theme-btn">{{ $heroSection->button_text }} <i class="far fa-arrow-alt-right"></i></a>
-                                @endif
-                            @else
-                                <!-- Fallback content if no hero section is configured -->
-                            <span class="sub-title mb-35"><i class="far fa-hamburger"></i>Halal Jamm: </span>
-                            <h1>Bold Flavors of New York</h1>
-                            <p>Fresh halal street food crafted with passion. Every bite tells a story of authentic New York cuisine.</p>
-                            <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">View All Menu <i class="far fa-arrow-alt-right"></i></a>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="hero-images rmt-60">
-                            @if($heroSection && $heroSection->hero_image)
-                                <img src="{{ $heroSection->image_url }}" alt="{{ $heroSection->primary_text }}">
-                            @else
-                            <img src="{{ asset('/assets/images/hero/hero-right.png') }}" alt="Hero">
-                            @endif
-                            
-                            {{-- @if($heroSection && ($heroSection->price_text || $heroSection->price))
-                                <div class="price">
-                                    @if($heroSection->price_text)
-                                        <span class="price-text">{{ $heroSection->price_text }}</span>
+                        <div class="hero-content text-white hero-slider-content">
+                            @if($heroSections && $heroSections->count() > 1)
+                                <!-- Multiple hero sections - Slider mode -->
+                                @foreach($heroSections as $index => $slide)
+                                    <div class="hero-slide-content {{ $index === 0 ? 'active' : '' }}" data-slide-index="{{ $index }}">
+                                        @if($slide->small_text)
+                                            <span class="sub-title mb-35 hero-subtitle"><i class="far fa-hamburger"></i><span class="sub-text-word">{{ $slide->small_text }}</span></span>
+                                        @endif
+                                        <h1 class="hero-primary-text">
+                                            @php
+                                                $words = explode(' ', $slide->primary_text);
+                                                foreach($words as $wordIndex => $word) {
+                                                    echo '<span class="word-word" data-word-index="' . $wordIndex . '">' . $word . '</span> ';
+                                                }
+                                            @endphp
+                                        </h1>
+                                        @if($slide->secondary_text)
+                                            <p class="hero-secondary-text">
+                                                @php
+                                                    $words = explode(' ', $slide->secondary_text);
+                                                    foreach($words as $wordIndex => $word) {
+                                                        echo '<span class="word-word" data-word-index="' . $wordIndex . '">' . $word . '</span> ';
+                                                    }
+                                                @endphp
+                                            </p>
+                                        @endif
+                                        @if($slide->button_text && $slide->button_url)
+                                            <a href="{{ $slide->button_url }}" target="_blank" class="theme-btn hero-button">{{ $slide->button_text }} <i class="far fa-arrow-alt-right"></i></a>
+                                        @endif
+                                    </div>
+                                @endforeach
+                            @elseif($heroSection)
+                                <!-- Single hero section - No slider -->
+                                <div class="hero-slide-content active">
+                                    @if($heroSection->small_text)
+                                        <span class="sub-title mb-35"><i class="far fa-hamburger"></i>{{ $heroSection->small_text }}</span>
                                     @endif
-                                    @if($heroSection->price)
-                                        <span class="price-amount">${{ number_format($heroSection->price, 2) }}</span>
+                                    <h1>{{ $heroSection->primary_text }}</h1>
+                                    @if($heroSection->secondary_text)
+                                        <p>{{ $heroSection->secondary_text }}</p>
+                                    @endif
+                                    @if($heroSection->button_text && $heroSection->button_url)
+                                        <a href="{{ $heroSection->button_url }}" target="_blank" class="theme-btn">{{ $heroSection->button_text }} <i class="far fa-arrow-alt-right"></i></a>
                                     @endif
                                 </div>
                             @else
-                            <div class="price">
-                                <img src="{{ asset('/assets/images/hero/price.png') }}" alt="Hero">
-                            </div>
-                            @endif --}}
+                                <!-- Fallback content if no hero section is configured -->
+                                <div class="hero-slide-content active">
+                                    <span class="sub-title mb-35"><i class="far fa-hamburger"></i>Halal Jamm: </span>
+                                    <h1>Bold Flavors of New York</h1>
+                                    <p>Fresh halal street food crafted with passion. Every bite tells a story of authentic New York cuisine.</p>
+                                    <a href="https://halal-jamm-queens.cloveronline.com/menu/all" target="_blank" class="theme-btn">View All Menu <i class="far fa-arrow-alt-right"></i></a>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-images rmt-60 hero-slider-images">
+                            @if($heroSections && $heroSections->count() > 1)
+                                <!-- Multiple hero sections - Image slider -->
+                                @foreach($heroSections as $index => $slide)
+                                    <div class="hero-slide-image {{ $index === 0 ? 'active' : '' }}" data-slide-index="{{ $index }}">
+                                        <img src="{{ $slide->image_url }}" alt="{{ $slide->primary_text }}">
+                                    </div>
+                                @endforeach
+                            @elseif($heroSection && $heroSection->hero_image)
+                                <!-- Single hero section - No slider -->
+                                <div class="hero-slide-image active">
+                                    <img src="{{ $heroSection->image_url }}" alt="{{ $heroSection->primary_text }}">
+                                </div>
+                            @else
+                                <!-- Fallback image -->
+                                <div class="hero-slide-image active">
+                                    <img src="{{ asset('/assets/images/hero/hero-right.png') }}" alt="Hero">
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -1449,4 +1493,111 @@
     <!-- footer area -->
     @include('frontend.includes.footers.footerOne')
     <!-- footer area end -->
+@endsection
+
+@section('script')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const heroSections = @json($heroSections ?? []);
+    
+    // Only initialize slider if there are multiple hero sections
+    if (heroSections && heroSections.length > 1) {
+        let currentSlide = 0;
+        const totalSlides = heroSections.length;
+        const slideDuration = 5000; // 5 seconds per slide
+        let autoSlideInterval;
+        
+        // Get all slide elements
+        const contentSlides = document.querySelectorAll('.hero-slide-content');
+        const imageSlides = document.querySelectorAll('.hero-slide-image');
+        
+        // Function to show specific slide
+        function showSlide(slideIndex, direction = 'next') {
+            // Hide current slide
+            if (contentSlides[currentSlide]) {
+                contentSlides[currentSlide].classList.remove('active');
+                // Reset words for next display
+                const words = contentSlides[currentSlide].querySelectorAll('.word-word');
+                words.forEach(word => {
+                    word.classList.remove('animate-in');
+                });
+            }
+            
+            if (imageSlides[currentSlide]) {
+                imageSlides[currentSlide].classList.remove('active');
+            }
+            
+            // Update current slide index
+            currentSlide = slideIndex;
+            
+            // Show new slide
+            setTimeout(() => {
+                if (contentSlides[currentSlide]) {
+                    contentSlides[currentSlide].classList.add('active');
+                    // Animate words in with stagger effect
+                    const words = contentSlides[currentSlide].querySelectorAll('.word-word');
+                    words.forEach((word, index) => {
+                        setTimeout(() => {
+                            word.classList.add('animate-in');
+                        }, (index + 1) * 100);
+                    });
+                }
+                
+                if (imageSlides[currentSlide]) {
+                    imageSlides[currentSlide].classList.add('active');
+                }
+            }, 300); // Small delay for smooth transition
+        }
+        
+        // Function to show next slide
+        function showNextSlide() {
+            const nextIndex = (currentSlide + 1) % totalSlides;
+            showSlide(nextIndex, 'next');
+        }
+        
+        // Function to show previous slide
+        function showPrevSlide() {
+            const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(prevIndex, 'prev');
+        }
+        
+        // Function to reset auto-slide timer
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(showNextSlide, slideDuration);
+        }
+        
+        // Initialize word animations for first slide
+        if (contentSlides[0]) {
+            const words = contentSlides[0].querySelectorAll('.word-word');
+            words.forEach((word, index) => {
+                setTimeout(() => {
+                    word.classList.add('animate-in');
+                }, (index + 1) * 100);
+            });
+        }
+        
+        // Navigation button event listeners
+        const prevBtn = document.querySelector('.hero-slider-prev');
+        const nextBtn = document.querySelector('.hero-slider-next');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                showPrevSlide();
+                resetAutoSlide();
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                showNextSlide();
+                resetAutoSlide();
+            });
+        }
+        
+        // Start auto-slide
+        autoSlideInterval = setInterval(showNextSlide, slideDuration);
+    }
+});
+</script>
 @endsection

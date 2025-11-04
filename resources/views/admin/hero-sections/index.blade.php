@@ -15,6 +15,11 @@
                               <div>
                                     <p class="card-title mb-0">Hero Section</p>
                               </div>
+                              <div>
+                                    <a href="{{ route('admin.hero-sections.create') }}" class="btn btn-primary">
+                                         <i class="ri-add-line me-1"></i> Create New Slide
+                                    </a>
+                              </div>
                        </div>
                        <div class="card-body">
                               <div class="table-responsive">
@@ -22,6 +27,7 @@
                                           <thead class="bg-light-subtle">
                                                 <tr>
                                                        <th>#</th>
+                                                       <th>Sort Order</th>
                                                        <th>Image</th>
                                                        <th>Primary Text</th>
                                                        <th>Small Text</th>
@@ -35,6 +41,9 @@
                                                 @forelse($heroSections as $index => $heroSection)
                                                 <tr>
                                                        <td>{{ $index + 1 }}</td>
+                                                       <td>
+                                                             <span class="badge bg-info">{{ $heroSection->sort_order ?? 0 }}</span>
+                                                       </td>
                                                        <td>
                                                              <div class="d-flex align-items-center">
                                                                   <div class="avatar-sm bg-light rounded">
@@ -78,7 +87,7 @@
                                                 </tr>
                                                 @empty
                                                 <tr>
-                                                       <td colspan="8" class="text-center py-4">
+                                                       <td colspan="9" class="text-center py-4">
                                                              <div class="text-muted">
                                                                   <i class="ri-inbox-line fs-48"></i>
                                                                   <p class="mt-2">No hero sections found</p>
