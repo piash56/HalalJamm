@@ -11,6 +11,19 @@
         
         <!-- Hero Area Start -->
         <section class="hero-area bgs-cover pt-180 rpt-150 pb-100 rel z-1" style="background-image: url(assets/images/background/hero.jpg)">
+            <style>
+                .hero-content h1 {
+                    font-size: 78px !important;
+                }
+                .hero-content p {
+                    font-size: 22px !important;
+                }
+                @media only screen and (max-width: 991px) {
+                    .hero-content h1 {
+                        font-size: 58px !important;
+                    }
+                }
+            </style>
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
@@ -20,9 +33,9 @@
                                     <span class="sub-title mb-35"><i class="far fa-hamburger"></i>{{ $heroSection->small_text }}</span>
                                 @endif
                                 <h1>{{ $heroSection->primary_text }}</h1>
-                                {{-- @if($heroSection->secondary_text)
+                                @if($heroSection->secondary_text)
                                     <p>{{ $heroSection->secondary_text }}</p>
-                                @endif --}}
+                                @endif
                                 @if($heroSection->button_text && $heroSection->button_url)
                                     <a href="{{ $heroSection->button_url }}" target="_blank" class="theme-btn">{{ $heroSection->button_text }} <i class="far fa-arrow-alt-right"></i></a>
                                 @endif
